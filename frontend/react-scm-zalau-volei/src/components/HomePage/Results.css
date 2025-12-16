@@ -1,5 +1,5 @@
 .results-section {
-  background-color: white; /* Clean white */
+  background-color: white;
   padding: 80px 0;
 }
 
@@ -14,7 +14,7 @@
 
 .result-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card-header-custom {

@@ -4,7 +4,6 @@
   overflow: hidden;
 }
 
-/* Blurred background image logic */
 .player-carousel-section::before {
   content: "";
   position: absolute;
@@ -23,7 +22,6 @@
   z-index: 1;
 }
 
-/* Image & Video Styling */
 .img-vertical,
 .video-vertical {
   width: auto;
@@ -40,7 +38,6 @@
   transform: scale(1.02);
 }
 
-/* Custom Carousel Arrows */
 .player-carousel-section .carousel-control-prev,
 .player-carousel-section .carousel-control-next {
   width: 5%;
@@ -55,9 +52,9 @@
   width: 3.5rem;
   height: 3.5rem;
   background-size: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .player-carousel-section .carousel-control-prev-icon:hover,
@@ -66,11 +63,9 @@
   transform: scale(1.1);
 }
 
-/* --- MOBILE SPECIFIC --- */
 @media (max-width: 768px) {
   .img-vertical,
   .video-vertical {
-    /* Reduced from 85% to 70% to make them smaller on mobile */
     width: 70%;
     max-height: 60vh;
   }
@@ -81,9 +76,13 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  
-  .player-carousel-section .carousel-control-prev { left: 10px; }
-  .player-carousel-section .carousel-control-next { right: 10px; }
+
+  .player-carousel-section .carousel-control-prev {
+    left: 10px;
+  }
+  .player-carousel-section .carousel-control-next {
+    right: 10px;
+  }
 
   .player-carousel-section .carousel-control-prev-icon,
   .player-carousel-section .carousel-control-next-icon {

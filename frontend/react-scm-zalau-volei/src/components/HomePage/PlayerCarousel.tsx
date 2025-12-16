@@ -35,11 +35,13 @@ export const PlayerCarousel = () => {
       const deltaX = startX - endX;
       if (Math.abs(deltaX) > 50) {
         if (deltaX > 0) {
-          // Swipe left → next
-          carousel.querySelector<HTMLButtonElement>(".carousel-control-next")?.click();
+          carousel
+            .querySelector<HTMLButtonElement>(".carousel-control-next")
+            ?.click();
         } else {
-          // Swipe right → prev
-          carousel.querySelector<HTMLButtonElement>(".carousel-control-prev")?.click();
+          carousel
+            .querySelector<HTMLButtonElement>(".carousel-control-prev")
+            ?.click();
         }
       }
     };
@@ -58,13 +60,11 @@ export const PlayerCarousel = () => {
   return (
     <section className="player-carousel-section">
       <div className="container carousel-container">
-        {/* Title (Optional - keeping it clean without one for now, but you can add it) */}
-        
-        {/* Carousel */}
+
         <div
           id="carouselControls"
           className="carousel slide"
-          data-bs-interval="false" // Stops auto-play so video isn't interrupted
+          data-bs-interval="false"
           ref={carouselRef}
         >
           <div className="carousel-inner">
@@ -97,14 +97,16 @@ export const PlayerCarousel = () => {
             ))}
           </div>
 
-          {/* Controls */}
           <button
             className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselControls"
             data-bs-slide="prev"
           >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
@@ -113,14 +115,19 @@ export const PlayerCarousel = () => {
             data-bs-target="#carouselControls"
             data-bs-slide="next"
           >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>
 
-        {/* Button */}
         <div className="text-center mt-4">
-          <a className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold" href="#">
+          <a
+            className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold"
+            href="#"
+          >
             Vezi Galerie Foto
           </a>
         </div>

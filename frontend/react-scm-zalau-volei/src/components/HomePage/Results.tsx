@@ -11,9 +11,8 @@ export const Results = () => {
             <h2 className="section-title">ULTIMELE REZULTATE</h2>
           </div>
         </div>
-        
+
         <div className="row g-5 justify-content-center">
-          {/* Result 1 */}
           <div className="col-lg-6">
             <div className="result-card">
               <div className="card-header-custom">
@@ -22,20 +21,26 @@ export const Results = () => {
               <img src={rezEt1} alt="Rezultat Etapa I" className="result-img" />
             </div>
           </div>
-          
-          {/* Result 2 */}
+
           <div className="col-lg-6">
             <div className="result-card">
               <div className="card-header-custom">
                 <span className="etapa-badge">Etapa II</span>
               </div>
-              <img src={rezEt2} alt="Rezultat Etapa II" className="result-img" />
+              <img
+                src={rezEt2}
+                alt="Rezultat Etapa II"
+                className="result-img"
+              />
             </div>
           </div>
         </div>
 
         <div className="text-center mt-5">
-          <a className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold" href="#">
+          <a
+            className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold"
+            href="#"
+          >
             Vezi Toate Rezultatele
           </a>
         </div>
