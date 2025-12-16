@@ -1,6 +1,6 @@
 import React from "react";
-import logoscm from "C:/Users/leona/PP/scm-zalau-volei/01-frontend/react-scm-zalau-volei/src/logoscm.svg";
-
+import logoscm from "C:/Users/leona/SCMZalauVolei/frontend/react-scm-zalau-volei/src/logoscm.svg"
+import "./Navbar.css";
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark main-color py-3">

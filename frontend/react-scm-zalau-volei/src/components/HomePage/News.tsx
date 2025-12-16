@@ -2,6 +2,7 @@ import stire1 from "../../Images/NewsImages/stire1.png";
 import stire2 from "../../Images/NewsImages/stire2.png";
 import stiri_poza1 from "../../Images/NewsImages/stiri_poza1.jpg";
 import stiri_poza2 from "../../Images/NewsImages/stiri_poza2.jpg";
+import "./News.css";
 
 export const News = () => {
   return (

@@ -1,0 +1,3 @@
+.countdown {
+  background: linear-gradient(to right, var(--yellow), var(--red), var(--blue));
+}

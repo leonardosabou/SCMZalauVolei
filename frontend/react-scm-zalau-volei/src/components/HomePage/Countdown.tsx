@@ -1,3 +1,5 @@
+import "./Countdown.css";
+
 export const Countdown = () => {
   return (
     <>

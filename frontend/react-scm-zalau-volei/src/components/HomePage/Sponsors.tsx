@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-
+import "./Sponsors.css";
 import autodan from "../../Images/SponsorsImages/autodan.png";
 import avril from "../../Images/SponsorsImages/avril.png";
 import brilliant from "../../Images/SponsorsImages/brilliant.jpg";

@@ -1,5 +1,6 @@
 import rezEt1 from "../../Images/ResultsImages/RezultatEtapaI.png";
 import rezEt2 from "../../Images/ResultsImages/RezultatEtapaII.png";
+import "./Results.css";
 export const Results = () => {
   return (
     <>

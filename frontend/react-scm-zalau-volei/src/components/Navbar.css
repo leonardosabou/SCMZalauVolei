@@ -1,0 +1,27 @@
+.navbar {
+  background: linear-gradient(to right, var(--yellow), var(--red), var(--blue));
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.navbar .nav-link {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-nav {
+  gap: 2rem;
+}
+
+.navbar-brand img {
+  background-color: transparent;
+  width: 80px;
+  height: 100px;
+}
+
+.navbar .btn-outline-light {
+  font-size: 1rem;
+  font-weight: 500;
+  border-width: 2px;
+}

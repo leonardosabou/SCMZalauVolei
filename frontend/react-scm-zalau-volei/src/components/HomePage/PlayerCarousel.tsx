@@ -3,6 +3,7 @@ import player1 from "../../Images/BooksImages/new-book-1.png";
 import player2 from "../../Images/BooksImages/new-book-2.png";
 import player3 from "../../Images/BooksImages/book-luv2code-1000.png";
 import player4 from "../../Videos/demo.mp4";
+import "./PlayerCarousel.css";
 
 export const PlayerCarousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
