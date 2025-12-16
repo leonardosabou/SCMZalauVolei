@@ -12,6 +12,7 @@ import { PlayerCarousel } from "./components/HomePage/PlayerCarousel";
 import { News } from "./components/HomePage/News";
 import {Results} from "./components/HomePage/Results";
 import { Sponsors } from "./components/HomePage/Sponsors";
+import {Footer} from "./components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <News />
       <Results />
       <Sponsors />
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,48 @@
+.footer-section {
+  background-color: #111; /* Almost black for contrast */
+  color: #bbb;
+  padding: 80px 0 30px 0;
+  border-top: 4px solid var(--accent-red);
+}
+
+.footer-brand {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.footer-title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.footer-text, .footer-links li {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background-color: var(--primary-blue);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+}

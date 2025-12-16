@@ -1,57 +1,41 @@
 .results-section {
-  background: linear-gradient(to bottom right, var(--yellow), var(--blue));
-  color: black;
+  background-color: white; /* Clean white */
+  padding: 80px 0;
 }
 
-.results-grid {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  flex-wrap: wrap;
-  padding: 0 2rem;
+.result-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
 }
 
-.results-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1 1 45%;
-  max-width: 780px;
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-.results-img {
+.card-header-custom {
+  padding: 1.5rem;
+  background-color: var(--white);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.etapa-badge {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.result-img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.results-etapa {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .results-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-  .results-column {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .results-img {
-    margin-left: 0;
-    width: 90%;
-  }
-
-  .results-etapa {
-    font-size: 1.5rem;
-  }
+  display: block;
 }

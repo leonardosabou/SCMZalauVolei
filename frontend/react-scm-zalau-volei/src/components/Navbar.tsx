@@ -1,18 +1,19 @@
 import React from "react";
-import logoscm from "C:/Users/leona/SCMZalauVolei/frontend/react-scm-zalau-volei/src/logoscm.svg"
+import logoscm from "../logoscm.svg";
 import "./Navbar.css";
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark main-color py-3">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div className="container">
         <span className="navbar-brand d-flex align-items-center">
           <img
             src={logoscm}
             alt="SCM Zalau Volei Logo"
-            width="40"
-            height="40"
+            width="50"
+            height="60"
             className="me-2"
           />
+          <span className="d-none d-sm-block fw-bold">SCM ZALĂU</span>
         </span>
 
         <button
@@ -28,31 +29,29 @@ export const Navbar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link px-3" href="#">
                 ACASĂ
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link px-3" href="#">
                 ECHIPA
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link px-3" href="#">
                 PROGRAM
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link px-3" href="#">
                 GALERIE FOTO
               </a>
             </li>
-          </ul>
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item m-1">
-              <a type="button" className="btn btn-outline-light" href="#">
+            <li className="nav-item ms-lg-2">
+              <a className="btn btn-custom btn-sm" href="#">
                 Intră în cont
               </a>
             </li>

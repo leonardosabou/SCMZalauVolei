@@ -1,3 +1,51 @@
-.countdown {
-  background: linear-gradient(to right, var(--yellow), var(--red), var(--blue));
+.countdown-hero {
+  background: 
+    linear-gradient(rgba(28, 63, 145, 0.85), rgba(15, 30, 70, 0.9)), 
+    url("../../Images/PublicImages/image-2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax effect */
+  position: relative;
+  padding: 100px 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  margin-bottom: 2rem;
+}
+
+.countdown-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.next-match-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: var(--accent-yellow);
+  letter-spacing: 1px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .countdown-box {
+    padding: 2rem;
+    width: 100%;
+  }
 }

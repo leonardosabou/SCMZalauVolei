@@ -1,87 +1,88 @@
-.sponsor-section{
-  background: linear-gradient(to right, var(--red), var(--blue));
-}
-
-.sponsor-title{
-  color: black;
-}
-
-.sponsor-carousel-wrapper {
-  padding: 20px 0;
+.sponsor-section {
+  background-color: #f8f9fa;
+  border-top: 1px solid #eee;
   position: relative;
 }
 
-.sponsor-carousel-inner {
-  max-height: 250px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
 .sponsor-img {
-  width: 100%;
-  height: 220px;
+  max-height: 80px; /* Desktop default */
+  width: auto;
+  filter: grayscale(100%) opacity(0.6);
+  transition: all 0.4s ease;
   object-fit: contain;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: brightness(0.95);
+  margin: 0 auto;
 }
 
 .sponsor-img:hover {
-  filter: brightness(1.1);
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.1);
 }
 
-/* Carousel controls */
-#carouselSponsors .carousel-control-prev,
-#carouselSponsors .carousel-control-next {
-  width: 4%;
-  opacity: 0.9;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
+/* --- CAROUSEL ARROWS --- */
+
+.sponsor-section .carousel-control-prev-icon,
+.sponsor-section .carousel-control-next-icon {
+  background-color: var(--primary-blue);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-size: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 
-#carouselSponsors .carousel-control-prev:hover,
-#carouselSponsors .carousel-control-next:hover {
-  opacity: 1;
-  transform: translateY(-50%) scale(1.1);
+.sponsor-section .carousel-control-prev-icon:hover,
+.sponsor-section .carousel-control-next-icon:hover {
+  background-color: var(--accent-red);
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(204, 0, 0, 0.3);
 }
 
-/* Push arrows outside the images */
-#carouselSponsors .carousel-control-prev {
-  left: -60px;
-}
-
-#carouselSponsors .carousel-control-next {
-  right: -60px;
-}
-
-.carousel-container {
-  padding-bottom: 50px; /* enough for button space */
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #carouselSponsors .carousel-control-prev,
-  #carouselSponsors .carousel-control-next {
-    width: 8%;
+/* --- DESKTOP SPECIFIC (Outer Arrows) --- */
+@media (min-width: 992px) {
+  .sponsor-section .carousel-control-prev,
+  .sponsor-section .carousel-control-next {
+    width: 50px;
+    opacity: 1;
   }
 
-  #carouselSponsors .carousel-control-prev {
-    left: 1%;
-  }
-
-  #carouselSponsors .carousel-control-next {
-    right: 1%;
-  }
-
-  .carousel-container {
-    padding-bottom: 0px;
-  }
+  .sponsor-section .carousel-control-prev { left: -70px; }
+  .sponsor-section .carousel-control-next { right: -70px; }
 }
 
-/* Desktop button bottom-right */
-.desktop-btn {
-  position: absolute;
-  bottom: -75px; /* move it further down below the carousel */
-  right: 0;
+/* --- MOBILE SPECIFIC (Inner Arrows & Sizing Fix) --- */
+@media (max-width: 991px) {
+  
+  /* 1. Make logos smaller on mobile */
+  .sponsor-img {
+    max-height: 50px; 
+  }
+
+  /* 2. CRITICAL FIX: Add padding to the container to push logos inward */
+  /* This creates space on Left and Right so arrows don't cover the logos.
+     It also squeezes the two columns closer together. */
+  .sponsor-section .carousel-item .row {
+     padding-left: 40px;  /* Pushes left logo to the right */
+     padding-right: 40px; /* Pushes right logo to the left */
+  }
+
+  /* 3. Adjust Arrows */
+  .sponsor-section .carousel-control-prev,
+  .sponsor-section .carousel-control-next {
+    width: 30px; /* Restrict width so they don't overlap content clickable area */
+    opacity: 1;
+  }
+
+  .sponsor-section .carousel-control-prev { left: 0; }
+  .sponsor-section .carousel-control-next { right: 0; }
+
+  /* Smaller arrow icons on mobile */
+  .sponsor-section .carousel-control-prev-icon,
+  .sponsor-section .carousel-control-next-icon {
+    width: 2rem;
+    height: 2rem;
+    background-size: 40%;
+    /* Optional: make the arrow button background slightly transparent/smaller */
+    box-shadow: none; 
+  }
 }

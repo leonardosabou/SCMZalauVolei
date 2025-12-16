@@ -15,7 +15,7 @@ export const PlayerCarousel = () => {
     { type: "video", src: player4, alt: "player4" },
   ];
 
-  // Swipe support
+  // Swipe support logic (kept exactly as you had it)
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
@@ -36,16 +36,10 @@ export const PlayerCarousel = () => {
       if (Math.abs(deltaX) > 50) {
         if (deltaX > 0) {
           // Swipe left → next
-          const nextButton = carousel.querySelector<HTMLButtonElement>(
-            ".carousel-control-next"
-          );
-          nextButton?.click();
+          carousel.querySelector<HTMLButtonElement>(".carousel-control-next")?.click();
         } else {
           // Swipe right → prev
-          const prevButton = carousel.querySelector<HTMLButtonElement>(
-            ".carousel-control-prev"
-          );
-          prevButton?.click();
+          carousel.querySelector<HTMLButtonElement>(".carousel-control-prev")?.click();
         }
       }
     };
@@ -62,97 +56,75 @@ export const PlayerCarousel = () => {
   }, []);
 
   return (
-    <>
-      <div className="top-bar"></div>
-      <div className="player-carousel-wrapper">
+    <section className="player-carousel-section">
+      <div className="container carousel-container">
+        {/* Title (Optional - keeping it clean without one for now, but you can add it) */}
+        
+        {/* Carousel */}
         <div
-          className="container carousel-container"
-          style={{ minHeight: "350px", position: "relative" }}
+          id="carouselControls"
+          className="carousel slide"
+          data-bs-interval="false" // Stops auto-play so video isn't interrupted
+          ref={carouselRef}
         >
-          {/* Carousel */}
-          <div
-            id="carouselControls"
-            className="carousel carousel-light slide mt-5"
-            data-bs-interval="false"
-            ref={carouselRef}
-          >
-            <div className="carousel-inner">
-              {players.map((player, index) => (
-                <div
-                  className={`carousel-item ${index === 0 ? "active" : ""}`}
-                  key={index}
-                >
-                  <div className="row d-flex justify-content-center align-items-center">
-                    <div className="text-center">
-                      {player.type === "image" ? (
-                        <img
-                          src={player.src}
-                          className="img-vertical"
-                          alt={player.alt}
-                        />
-                      ) : (
-                        <video
-                          className="video-vertical"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                        >
-                          <source src={player.src} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      )}
-                    </div>
-                  </div>
+          <div className="carousel-inner">
+            {players.map((player, index) => (
+              <div
+                className={`carousel-item ${index === 0 ? "active" : ""}`}
+                key={index}
+              >
+                <div className="d-flex justify-content-center align-items-center py-3">
+                  {player.type === "image" ? (
+                    <img
+                      src={player.src}
+                      className="img-vertical"
+                      alt={player.alt}
+                    />
+                  ) : (
+                    <video
+                      className="video-vertical"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
+                      <source src={player.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
                 </div>
-              ))}
-            </div>
-
-            {/* Carousel controls with extra spacing on mobile */}
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselControls"
-              data-bs-slide="prev"
-            >
-              <span
-                className="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselControls"
-              data-bs-slide="next"
-            >
-              <span
-                className="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Next</span>
-            </button>
+              </div>
+            ))}
           </div>
 
-          {/* Button: overlay on large, below on small */}
-          <div className="position-relative" style={{ marginTop: "15px" }}>
-            <a
-              className="btn btn-outline-light btn-lg position-absolute d-none d-md-block"
-              href="#"
-              style={{ bottom: "15px", right: "0" }}
-            >
-              Vezi Galerie Foto
-            </a>
-            <a
-              className="btn btn-outline-light btn-lg d-block d-md-none mt-3 mb-2"
-              href="#"
-            >
-              Vezi Galerie Foto
-            </a>
-          </div>
+          {/* Controls */}
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselControls"
+            data-bs-slide="prev"
+          >
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselControls"
+            data-bs-slide="next"
+          >
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        {/* Button */}
+        <div className="text-center mt-4">
+          <a className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold" href="#">
+            Vezi Galerie Foto
+          </a>
         </div>
       </div>
-    </>
+    </section>
   );
 };

@@ -1,42 +1,96 @@
+/* --- SECTION & TITLE --- */
 .news-section {
-  background: linear-gradient(to bottom right, var(--yellow), var(--blue));
-  color: black;
+  background-color: var(--bg-light); /* Clean gray background */
+  padding: 80px 0;
 }
 
+.section-title {
+  color: var(--primary-blue);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  padding-left: 15px; /* Aligns title slightly better with the wider layout */
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  background: var(--accent-red);
+  margin-top: 10px;
+  border-radius: 3px;
+  margin-left: 15px;
+}
+
+/* --- CUSTOM CONTAINER (Wider than standard bootstrap) --- */
+.custom-news-container {
+  width: 90%;          /* Takes up 90% of the screen width */
+  max-width: 1800px;   /* Prevents it from looking too stretched on huge 4k monitors */
+  margin: 0 auto;      /* Centers the container */
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* --- GRID LAYOUT --- */
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 5rem; /* spacing between images */
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  /* minmax(600px, 1fr) logic:
+     - Cards will try to be at least 600px wide.
+     - If screen fits two 600px cards -> 2 columns.
+     - If screen is smaller -> 1 giant column (stacked).
+  */
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  gap: 2.5rem; /* Space between cards */
+  width: 100%;
+}
+
+/* Mobile Adjustment: Ensure it doesn't break on phones */
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr; /* Stack vertically on mobile */
+  }
+  
+  .custom-news-container {
+    width: 95%; /* Use almost full width on mobile */
+  }
+}
+
+/* --- CARD STYLING --- */
+.modern-card {
+  display: block;
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  
+  /* Let height grow naturally based on the image size */
+  height: auto; 
+}
+
+.modern-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-image-wrapper {
+  width: 100%;
+  display: block;
+  /* No fixed aspect-ratio, so we don't cut off any text */
 }
 
 .news-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;           /* Force image to fit card width */
+  height: auto;          /* Height adjusts automatically */
+  display: block;        /* Removes invisible bottom spacing */
+  object-fit: contain;   /* Shows the FULL image always */
+  transition: transform 0.5s ease;
 }
 
-.news-item-link:hover .news-img {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* MOBILE - stack vertically */
-@media (max-width: 768px) {
-  .news-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .news-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
+/* Optional: Subtle zoom effect on hover */
+.modern-card:hover .news-img {
+  transform: scale(1.02); 
 }

@@ -1,5 +1,27 @@
 :root {
-  --red: #cc0000;
-  --blue: #1c3f91;
-  --yellow: #f2c300;
+
+  --primary-blue: #1c3f91;
+  --accent-red: #cc0000;
+  --accent-yellow: #f2c300;
+
+  --bg-light: #f8f9fa;
+  --bg-dark: #212529;
+  --white: #fff;
+
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  --radius-lg: 16px;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }

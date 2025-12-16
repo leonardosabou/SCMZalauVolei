@@ -1,40 +1,45 @@
 import rezEt1 from "../../Images/ResultsImages/RezultatEtapaI.png";
 import rezEt2 from "../../Images/ResultsImages/RezultatEtapaII.png";
 import "./Results.css";
+
 export const Results = () => {
   return (
-    <>
-      <div className="top-bar"></div>
-      <section className="results-section container-fluid py-5">
-        <div className="mb-5">
-          <div className="col-12 text-start ps-lg-5">
-            <h1 className="news-title">ULTIMELE REZULTATE</h1>
+    <section className="results-section container-fluid py-5">
+      <div className="container">
+        <div className="row mb-5">
+          <div className="col-12 text-center text-md-start">
+            <h2 className="section-title">ULTIMELE REZULTATE</h2>
           </div>
         </div>
-        <div className="results-grid">
-          <div className="results-column">
-            <h2 className="results-etapa">Etapa I</h2>
-            <img src={rezEt1} alt="rezEt1" className="results-img" />
+        
+        <div className="row g-5 justify-content-center">
+          {/* Result 1 */}
+          <div className="col-lg-6">
+            <div className="result-card">
+              <div className="card-header-custom">
+                <span className="etapa-badge">Etapa I</span>
+              </div>
+              <img src={rezEt1} alt="Rezultat Etapa I" className="result-img" />
+            </div>
           </div>
-          <div className="results-column">
-            <h2 className="results-etapa">Etapa II</h2>
-            <img src={rezEt2} alt="rezEt2" className="results-img" />
+          
+          {/* Result 2 */}
+          <div className="col-lg-6">
+            <div className="result-card">
+              <div className="card-header-custom">
+                <span className="etapa-badge">Etapa II</span>
+              </div>
+              <img src={rezEt2} alt="Rezultat Etapa II" className="result-img" />
+            </div>
           </div>
-        </div>
-        {/* Desktop button */}
-        <div className="d-none d-md-block text-end mt-5">
-          <a className="btn btn-outline-light btn-lg" href="#">
-            Vezi Mai Multe Rezultate
-          </a>
         </div>
 
-        {/* Mobile button */}
-        <div className="d-block d-md-none mt-4 text-center">
-          <a className="btn btn-outline-light btn-lg w-100" href="#">
-            Vezi Mai Multe Rezultate
+        <div className="text-center mt-5">
+          <a className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold" href="#">
+            Vezi Toate Rezultatele
           </a>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
