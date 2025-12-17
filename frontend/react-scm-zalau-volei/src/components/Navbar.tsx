@@ -1,6 +1,7 @@
 import React from "react";
 import logoscm from "../Images/scmzalaulogopng.png";
 import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -31,14 +32,14 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
-              <a className="nav-link px-3" href="#">
+              <NavLink className="nav-link px-3" to="/" end>
                 ACASĂ
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-3" href="#">
+              <NavLink className="nav-link px-3" to="/echipa">
                 ECHIPA
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link px-3" href="#">

@@ -28,6 +28,12 @@ public class HomeController {
     @Autowired
     private GameHighlightRepository gameHighlightRepository;
 
+    @Autowired
+    private PlayerRepository playerRepository;
+
+    @Autowired
+    private StaffRepository staffRepository;
+
     @GetMapping("/news")
     public List<NewsItem> getNews(){
         return newsRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
@@ -55,5 +61,15 @@ public class HomeController {
     @GetMapping("/highlights")
     public List<GameHighlight> getHighlights(){
         return gameHighlightRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+    }
+
+    @GetMapping("/team/players")
+    public List<Player> getPlayers(){
+        return playerRepository.findAll();
+    }
+
+    @GetMapping("/team/staff")
+    public List<Staff> getStaff(){
+        return staffRepository.findAll();
     }
 }

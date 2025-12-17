@@ -33,3 +33,18 @@ VALUES
     ('image', '/assets/highlights/new-book-1.png', 'Atac Zalau'),
     ('image', '/assets/highlights/new-book-2.png', 'Blocaj Zalau'),
     ('video', '/assets/highlights/werty_im_4k_g2.mp4', 'Punctul decisiv');
+
+INSERT INTO player (name, shirt_number, nationality, position, height, date_of_birth, image_url, volleybox_url) VALUES
+('Matei Platon', 27, 'RO', 'Libero', '185 cm', '2003-07-27', '/assets/team/platon.png', 'https://volleybox.net/matei-platon-p79598/clubs'),
+('Thiago Suárez Mendoza', 1, 'CU', 'Centru', '215 cm', '2004-09-15', '/assets/team/mendosa.png', 'https://volleybox.net/thiago-suarez-mendoza-p115237/clubs'),
+('Victor Hugo Simões', 23, 'BR', 'Extremă/Secund', '197 cm', '1998-03-20', 'assets/team/simoes.png', 'https://volleybox.net/victor-hugo-simoes-p57597/clubs'),
+('Albert Hurt', 24, 'EE', 'Extremă/Secund', '190 cm', '1999-04-22', 'assets/team/hurt.png', 'https://volleybox.net/albert-hurt-p31647/clubs'),
+('Dragoș Crișan', 21, 'RO', 'Libero', '175 cm', '2008-04-12', 'assets/team/crisan.png', 'https://volleybox.net/drago-crian-p145990/indoor_tournaments');
+
+INSERT INTO staff (name, role, image_url) VALUES
+    ('Adrian Feher', 'Antrenor principal', '/assets/team/feher.png'),
+    ('Marius Lazăr', 'Antrenor secund', '/assets/team/lazar.png'),
+    ('Istvan Major', 'Fizioterapeut', '/assets/team/major.png'),
+/*    ('Călin Marincaș', 'Preparator fizic', '/assets/team/marincas.jpg'),*/
+    ('Tudor Lazăr', 'Statistician', '/assets/team/lazar2.png'),
+    ('Gabriel Terheș', 'Director sportiv', 'assets/team/terhes.png');

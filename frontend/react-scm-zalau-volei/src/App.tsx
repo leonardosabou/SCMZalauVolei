@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "../src/components/Navbar.css";
 import "../src/components/HomePage/Countdown.css";
@@ -7,24 +7,23 @@ import "../src/components/HomePage/News.css";
 import "../src/components/HomePage/PlayerCarousel.css";
 import "../src/components/HomePage/Results.css";
 import "../src/components/HomePage/Sponsors.css";
-import { Countdown } from "./components/HomePage/Countdown";
-import { PlayerCarousel } from "./components/HomePage/PlayerCarousel";
-import { News } from "./components/HomePage/News";
-import {Results} from "./components/HomePage/Results";
-import { Sponsors } from "./components/HomePage/Sponsors";
-import {Footer} from "./components/Footer";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
+import { HomePage } from "./components/HomePage";
+import { TeamPage } from "./components/TeamPage/TeamPage";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <Countdown />
-      <PlayerCarousel />
-      <News />
-      <Results />
-      <Sponsors />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/echipa" element={<TeamPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
