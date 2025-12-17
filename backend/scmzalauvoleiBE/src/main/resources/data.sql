@@ -19,9 +19,19 @@ VALUES
 
 INSERT INTO match_game (opponent, opponent_logo_url, date, location, competition)
 VALUES
-    ('CSM Bucuresti', '/assets/teams/csmbucuresti.png', '2025-12-17 19:00:00', 'Acasă', 'Divizia A1'),
-    ('CS Stiinta Explorari Baia Mare', '/assets/teams/baiamare.png', '2026-01-10 18:00:00', 'Deplasare', 'Divizia A1'),
-    ('Arcada Galati', '/assets/teams/arcada.png', '2026-01-17 18:00:00', 'Deplasare', 'Divizia A1');
+    ('CSM București', '/assets/teams/csmbucuresti.png', '2025-12-17 19:00:00', 'Acasă', 'Divizia A1'),
+    ('CS Știința Explorări Baia Mare', '/assets/teams/baiamare.png', '2026-01-10 18:00:00', 'Deplasare', 'Divizia A1'),
+    ('Arcada Galați', '/assets/teams/arcada.png', '2026-01-17 18:00:00', 'Deplasare', 'Divizia A1'),
+    ('CS Dinamo București', '/assets/teams/dinamo.png', '2026-01-24 18:00:00', 'Acasă', 'Divizia A1'),
+    ('CS Rapid București', '/assets/teams/rapid.png', '2026-01-31 18:00:00', 'Deplasare', 'Divizia A1'),
+    ('CSU Știința Politehnica București', '/assets/teams/polibucuresti.png', '2026-02-04 18:00:00', 'Deplasare', 'Cupa României'),
+    ('CSA Steaua București', '/assets/teams/steaua.png', '2026-02-07 18:00:00', 'Acasă', 'Divizia A1'),
+    ('CSM Corona Brașov', '/assets/teams/corona.png', '2026-02-14 18:00:00', 'Deplasare', 'Divizia A1'),
+    ('SCMU Craiova', '/assets/teams/craiova.png', '2026-02-21 18:00:00', 'Acasă', 'Divizia A1'),
+    ('CSU Știința Politehnica București', '/assets/teams/polibucuresti.png', '2026-02-25 18:00:00', 'Acasă', 'Cupa României'),
+    ('CSU Știința Politehnica București', '/assets/teams/polibucuresti.png', '2026-02-28 18:00:00', 'Deplasare', 'Divizia A1'),
+    ('CS Unirea Dej', '/assets/teams/dej.png', '2026-03-07 18:00:00', 'Acasă', 'Divizia A1'),
+    ('CSM București', '/assets/teams/csmbucuresti.png', '2026-03-14 18:00:00', 'Deplasare', 'Divizia A1');
 
 INSERT INTO match_result (stage, image_url)
 VALUES

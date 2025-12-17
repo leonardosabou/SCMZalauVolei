@@ -11,6 +11,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { HomePage } from "./components/HomePage";
 import { TeamPage } from "./components/TeamPage/TeamPage";
+import { ProgramPage } from "./components/ProgramPage/ProgramPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/echipa" element={<TeamPage />} />
+          <Route path="/program" element={<ProgramPage />} />
         </Routes>
         <Footer />
       </div>

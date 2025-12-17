@@ -72,4 +72,9 @@ public class HomeController {
     public List<Staff> getStaff(){
         return staffRepository.findAll();
     }
+
+    @GetMapping("/program")
+    public List<MatchGame> getAllMatches(){
+        return matchRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
+    }
 }

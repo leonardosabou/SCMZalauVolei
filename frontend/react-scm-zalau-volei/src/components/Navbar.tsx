@@ -42,9 +42,9 @@ export const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-3" href="#">
+              <NavLink className="nav-link px-3" to="/program">
                 PROGRAM
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link px-3" href="#">

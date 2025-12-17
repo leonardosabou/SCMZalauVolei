@@ -1,0 +1,112 @@
+.program-hero {
+  background-color: #1c3f91;
+  color: white;
+  padding: 120px 0 60px; /* Space for fixed navbar */
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.match-strip {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-left: 8px solid #ccc; /* Default border color */
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.match-strip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.border-acasa { border-left-color: #1c3f91; } 
+.border-deplasare { border-left-color: #cc0000; } 
+
+
+.match-date-box {
+  text-align: center;
+  min-width: 120px;
+}
+.match-day {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #333;
+  line-height: 1;
+}
+.match-month {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #666;
+  font-weight: 700;
+}
+.match-time {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #cc0000;
+  font-weight: 600;
+  display: block;
+}
+
+
+.match-teams {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.team-logo-small {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+.vs-badge {
+  background: #eee;
+  color: #555;
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+/* INFO SECTION */
+.match-info {
+  text-align: right;
+  min-width: 150px;
+}
+.match-location {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  display: block;
+}
+.match-competition {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .match-strip {
+    flex-direction: column;
+    text-align: center;
+  }
+  .match-teams {
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  .match-info {
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+  }
+}
