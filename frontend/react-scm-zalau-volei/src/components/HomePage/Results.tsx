@@ -1,8 +1,22 @@
-import rezEt1 from "../../Images/ResultsImages/RezultatEtapaI.png";
-import rezEt2 from "../../Images/ResultsImages/RezultatEtapaII.png";
+import { useEffect, useState } from "react";
 import "./Results.css";
 
+interface MatchResult {
+  id: number;
+  stage: string;
+  imageUrl: string;
+}
+
 export const Results = () => {
+  const [results, setResults] = useState<MatchResult[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/home/results")
+      .then((res) => res.json())
+      .then((data) => setResults(data))
+      .catch((err) => console.error("Error fetching results:", err));
+  }, []);
+
   return (
     <section className="results-section container-fluid py-5">
       <div className="container">
@@ -13,27 +27,20 @@ export const Results = () => {
         </div>
 
         <div className="row g-5 justify-content-center">
-          <div className="col-lg-6">
-            <div className="result-card">
-              <div className="card-header-custom">
-                <span className="etapa-badge">Etapa I</span>
+          {results.map((result) => (
+            <div className="col-lg-6" key={result.id}>
+              <div className="result-card">
+                <div className="card-header-custom">
+                  <span className="etapa-badge">{result.stage}</span>
+                </div>
+                <img
+                  src={result.imageUrl}
+                  alt={`Rezultat ${result.stage}`}
+                  className="result-img"
+                />
               </div>
-              <img src={rezEt1} alt="Rezultat Etapa I" className="result-img" />
             </div>
-          </div>
-
-          <div className="col-lg-6">
-            <div className="result-card">
-              <div className="card-header-custom">
-                <span className="etapa-badge">Etapa II</span>
-              </div>
-              <img
-                src={rezEt2}
-                alt="Rezultat Etapa II"
-                className="result-img"
-              />
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="text-center mt-5">

@@ -22,6 +22,12 @@ public class HomeController {
     @Autowired
     private MatchRepository matchRepository;
 
+    @Autowired
+    private MatchResultRepository resultRepository;
+
+    @Autowired
+    private GameHighlightRepository gameHighlightRepository;
+
     @GetMapping("/news")
     public List<NewsItem> getNews(){
         return newsRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
@@ -39,5 +45,15 @@ public class HomeController {
             return ResponseEntity.ok(nextMatch);
         }
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/results")
+    public List<MatchResult> getResults(){
+        return resultRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+    }
+
+    @GetMapping("/highlights")
+    public List<GameHighlight> getHighlights(){
+        return gameHighlightRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 }

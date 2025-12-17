@@ -8,7 +8,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../../Images/PublicImages/image-4.jpg");
+/*  background-image: url("../../Images/PublicImages/image-4.jpg");*/
   background-size: cover;
   background-position: center;
   filter: blur(15px) brightness(0.6);

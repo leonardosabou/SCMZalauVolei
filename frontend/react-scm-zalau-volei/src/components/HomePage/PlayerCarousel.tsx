@@ -1,21 +1,24 @@
-import React, { useRef, useEffect } from "react";
-import player1 from "../../Images/BooksImages/new-book-1.png";
-import player2 from "../../Images/BooksImages/new-book-2.png";
-import player3 from "../../Images/BooksImages/book-luv2code-1000.png";
-import player4 from "../../Videos/demo.mp4";
-import "./PlayerCarousel.css";
+import React, { useRef, useEffect, useState } from "react";
+import "./PlayerCarousel.css"; 
+
+interface GameHighlight {
+  id: number;
+  type: "image" | "video"; 
+  mediaUrl: string;
+  description: string;
+}
 
 export const PlayerCarousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [highlights, setHighlights] = useState<GameHighlight[]>([]);
 
-  const players = [
-    { type: "image", src: player1, alt: "player1" },
-    { type: "image", src: player2, alt: "player2" },
-    { type: "image", src: player3, alt: "player3" },
-    { type: "video", src: player4, alt: "player4" },
-  ];
+  useEffect(() => {
+    fetch("http://localhost:8080/api/home/highlights")
+      .then((res) => res.json())
+      .then((data) => setHighlights(data))
+      .catch((err) => console.error("Error fetching highlights:", err));
+  }, []);
 
-  // Swipe support logic (kept exactly as you had it)
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
@@ -26,22 +29,16 @@ export const PlayerCarousel = () => {
     const handleTouchStart = (e: TouchEvent) => {
       startX = e.touches[0].clientX;
     };
-
     const handleTouchMove = (e: TouchEvent) => {
       endX = e.touches[0].clientX;
     };
-
     const handleTouchEnd = () => {
       const deltaX = startX - endX;
       if (Math.abs(deltaX) > 50) {
         if (deltaX > 0) {
-          carousel
-            .querySelector<HTMLButtonElement>(".carousel-control-next")
-            ?.click();
+          carousel.querySelector<HTMLButtonElement>(".carousel-control-next")?.click();
         } else {
-          carousel
-            .querySelector<HTMLButtonElement>(".carousel-control-prev")
-            ?.click();
+          carousel.querySelector<HTMLButtonElement>(".carousel-control-prev")?.click();
         }
       }
     };
@@ -55,40 +52,45 @@ export const PlayerCarousel = () => {
       carousel.removeEventListener("touchmove", handleTouchMove);
       carousel.removeEventListener("touchend", handleTouchEnd);
     };
-  }, []);
+  }, [highlights]);
+
+  if (highlights.length === 0) return null;
 
   return (
     <section className="player-carousel-section">
       <div className="container carousel-container">
+        
+        {/* Optional Title */}
+        <div className="text-center mb-4">
+           <h2 className="section-title">GALERIE MEDIA</h2>
+        </div>
 
         <div
-          id="carouselControls"
+          id="carouselHighlights"
           className="carousel slide"
           data-bs-interval="false"
           ref={carouselRef}
         >
           <div className="carousel-inner">
-            {players.map((player, index) => (
+            {highlights.map((item, index) => (
               <div
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
-                key={index}
+                key={item.id}
               >
                 <div className="d-flex justify-content-center align-items-center py-3">
-                  {player.type === "image" ? (
+                  {item.type === "image" ? (
                     <img
-                      src={player.src}
+                      src={item.mediaUrl}
                       className="img-vertical"
-                      alt={player.alt}
+                      alt={item.description}
                     />
                   ) : (
                     <video
-                      className="video-vertical"
-                      autoPlay
-                      loop
-                      muted
+                      className="video-vertical" 
+                      controls
                       playsInline
                     >
-                      <source src={player.src} type="video/mp4" />
+                      <source src={item.mediaUrl} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   )}
@@ -100,35 +102,26 @@ export const PlayerCarousel = () => {
           <button
             className="carousel-control-prev"
             type="button"
-            data-bs-target="#carouselControls"
+            data-bs-target="#carouselHighlights"
             data-bs-slide="prev"
           >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
             className="carousel-control-next"
             type="button"
-            data-bs-target="#carouselControls"
+            data-bs-target="#carouselHighlights"
             data-bs-slide="next"
           >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>
 
         <div className="text-center mt-4">
-          <a
-            className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold"
-            href="#"
-          >
-            Vezi Galerie Foto
+          <a className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold" href="#">
+            Vezi Toate
           </a>
         </div>
       </div>

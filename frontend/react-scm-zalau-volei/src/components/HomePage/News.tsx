@@ -1,8 +1,23 @@
-import stire1 from "../../Images/NewsImages/stire1.png";
-import stire2 from "../../Images/NewsImages/stire2.png";
+import { useEffect, useState } from "react";
 import "./News.css";
 
+interface NewsItem {
+  id: number;
+  title: string;
+  imageUrl: string;
+  linkUrl: string;
+}
+
 export const News = () => {
+  const [newsList, setNewsList] = useState<NewsItem[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/home/news")
+      .then((res) => res.json())
+      .then((data) => setNewsList(data))
+      .catch((err) => console.error("Error fetching news:", err));
+  }, []);
+
   return (
     <section className="news-section container-fluid py-5">
       <div className="container-fluid custom-news-container">
@@ -13,34 +28,23 @@ export const News = () => {
         </div>
 
         <div className="news-grid">
-          <a
-            href="https://www.sportulsalajean.ro/lovitura-de-final-de-mercato-pentru-scm-zalau-un-international-din-estonia-vine-sa-aduca-forta-in-extrema-a-278067"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="modern-card"
-          >
-            <div className="card-image-wrapper">
-              <img src={stire1} alt="Stire SCM Zalau 1" className="news-img" />
-            </div>
-          </a>
-
-          <a
-            href="https://www.sportulsalajean.ro/divizia-a1-la-volei-masculin-incepe-in-weekend-cum-arata-programul-lui-scm-zalau-in-tur-a-277913"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="modern-card"
-          >
-            <div className="card-image-wrapper">
-              <img src={stire2} alt="Stire SCM Zalau 2" className="news-img" />
-            </div>
-          </a>
+          {newsList.map((item) => (
+            <a
+              key={item.id}
+              href={item.linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="modern-card"
+            >
+              <div className="card-image-wrapper">
+                <img src={item.imageUrl} alt={item.title} className="news-img" />
+              </div>
+            </a>
+          ))}
         </div>
 
         <div className="text-center mt-5">
-          <a
-            className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold"
-            href="#"
-          >
+          <a className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold" href="#">
             Vezi Toate Știrile
           </a>
         </div>
