@@ -47,6 +47,11 @@ export const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link px-3" to="/rezultate">
+                REZULTATE
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <a className="nav-link px-3" href="#">
                 GALERIE FOTO
               </a>

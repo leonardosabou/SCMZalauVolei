@@ -34,6 +34,9 @@ public class HomeController {
     @Autowired
     private StaffRepository staffRepository;
 
+    @Autowired
+    private StandingRepository standingRepository;
+
     @GetMapping("/news")
     public List<NewsItem> getNews(){
         return newsRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
@@ -76,5 +79,10 @@ public class HomeController {
     @GetMapping("/program")
     public List<MatchGame> getAllMatches(){
         return matchRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
+    }
+
+    @GetMapping("/standings")
+    public List<Standing> getStandings(){
+        return standingRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 }

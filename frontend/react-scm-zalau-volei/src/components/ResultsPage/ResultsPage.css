@@ -1,0 +1,74 @@
+.results-page-wrapper {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.results-hero {
+  background: linear-gradient(135deg, #1c3f91 0%, #0f1e46 100%);
+  color: white;
+  padding: 120px 0 60px;
+  text-align: center;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* CLASAMENT SECTION */
+.standings-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  margin-bottom: 60px;
+  border: 1px solid #eee;
+}
+
+.standings-header {
+  background-color: #f2c300;
+  padding: 15px 30px;
+  font-weight: 800;
+  color: #1c3f91;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.standings-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* INDIVIDUAL RESULT CARDS */
+.match-result-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  overflow: hidden;
+  margin-bottom: 40px;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s;
+}
+
+.match-result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.etapa-label {
+  background-color: #1c3f91;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.result-full-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

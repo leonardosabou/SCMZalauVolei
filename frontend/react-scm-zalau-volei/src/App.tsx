@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 import { HomePage } from "./components/HomePage";
 import { TeamPage } from "./components/TeamPage/TeamPage";
 import { ProgramPage } from "./components/ProgramPage/ProgramPage";
+import { ResultsPage } from "./components/ResultsPage/ResultsPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/echipa" element={<TeamPage />} />
           <Route path="/program" element={<ProgramPage />} />
+          <Route path="/rezultate" element={<ResultsPage />} />
         </Routes>
         <Footer />
       </div>

@@ -35,8 +35,15 @@ VALUES
 
 INSERT INTO match_result (stage, image_url)
 VALUES
-    ('Etapa I', '/assets/results/RezultatEtapaI.png'),
-    ('Etapa II', '/assets/results/RezultatEtapaII.png');
+    ('Etapa I', '/assets/results/etapa1.png'),
+    ('Etapa II', '/assets/results/etapa2.png'),
+    ('Etapa III', '/assets/results/etapa3.png'),
+    ('Etapa IV', '/assets/results/etapa4.png'),
+    ('Etapa V', '/assets/results/etapa5.png'),
+    ('Etapa VI', '/assets/results/etapa6.png'),
+    ('Etapa VII', '/assets/results/etapa7.png'),
+    ('Etapa VIII', '/assets/results/etapa8.png'),
+    ('Etapa IX', '/assets/results/etapa9.png');
 
 INSERT INTO game_highlight (type, media_url, description)
 VALUES
@@ -58,3 +65,7 @@ INSERT INTO staff (name, role, image_url) VALUES
 /*    ('Călin Marincaș', 'Preparator fizic', '/assets/team/marincas.jpg'),*/
     ('Tudor Lazăr', 'Statistician', '/assets/team/lazar2.png'),
     ('Gabriel Terheș', 'Director sportiv', 'assets/team/terhes.png');
+
+INSERT INTO standing (image_url, description)
+VALUES
+    ('/assets/standings/divizia_a1.png', 'Clasament Divizia A1');
