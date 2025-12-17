@@ -1,16 +1,16 @@
 import React from "react";
-import logoscm from "../logoscm.svg";
+import logoscm from "../Images/scmzalaulogopng.png";
 import "./Navbar.css";
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
       <div className="container">
         <span className="navbar-brand d-flex align-items-center">
           <img
             src={logoscm}
             alt="SCM Zalau Volei Logo"
-            width="50"
-            height="60"
+            width="70"
+            height="70"
             className="me-2"
           />
           <span className="d-none d-sm-block fw-bold">SCM ZALĂU</span>

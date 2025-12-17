@@ -12,11 +12,19 @@
   --radius-lg: 16px;
 }
 
+html{
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body{
   font-family: 'Inter', sans-serif;
   color: var(--text-dark);
   background-color: var(--white);
   overflow-x: hidden;
+  width: 100%;
+  position:relative;
+  padding-top:100px;
 }
 
 h1, h2, h3, h4, h5, .navbar-brand {
