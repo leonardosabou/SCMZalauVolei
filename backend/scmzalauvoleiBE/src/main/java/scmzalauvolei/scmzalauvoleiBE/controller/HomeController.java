@@ -49,7 +49,10 @@ public class HomeController {
 
     @GetMapping("/next-match")
     public ResponseEntity<MatchGame> getNextMatch(){
-        MatchGame nextMatch = matchRepository.findFirstByDateAfterOrderByDateAsc(LocalDateTime.now());
+        MatchGame nextMatch = matchRepository.findFirstByDateAfterAndIsFinishedFalseOrderByDateAsc(
+                LocalDateTime.now().minusHours(3)
+        );
+
         if(nextMatch != null){
             return ResponseEntity.ok(nextMatch);
         }

@@ -27,7 +27,7 @@ export const Results = () => {
         </div>
 
         <div className="row g-5 justify-content-center">
-          {results.map((result) => (
+          {results.slice(0, 2).map((result) => (
             <div className="col-lg-6" key={result.id}>
               <div className="result-card">
                 <div className="card-header-custom">

@@ -38,7 +38,6 @@ export const Countdown = () => {
 
       if (distance < 0) {
         setTimeLeft("MECIUL A ÎNCEPUT!");
-        clearInterval(interval);
       } else {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
@@ -94,7 +93,7 @@ export const Countdown = () => {
 
           <div className="mt-4">
             <h4 className="text-white mb-3">{match?.competition || ""}</h4>
-            <a type="button" className="btn btn-custom btn-lg px-5" href="#">
+            <a type="button" className="btn btn-custom btn-lg px-5" href="/program">
               Vezi Programul
             </a>
           </div>

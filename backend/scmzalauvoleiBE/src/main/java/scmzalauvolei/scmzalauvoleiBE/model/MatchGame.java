@@ -17,6 +17,7 @@ public class MatchGame {
     private LocalDateTime date;
     private String location; // Acasa / Deplasare
     private String competition; // Divizia A1 / CEV / Cupa
+    private boolean isFinished = false;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -35,4 +36,12 @@ public class MatchGame {
 
     public String getCompetition() { return competition; }
     public void setCompetition(String competition) { this.competition = competition; }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
+    }
 }
