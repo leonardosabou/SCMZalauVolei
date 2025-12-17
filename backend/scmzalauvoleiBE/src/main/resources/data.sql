@@ -19,7 +19,7 @@ VALUES
 
 INSERT INTO match_game (opponent, opponent_logo_url, date, location, competition)
 VALUES
-    ('CSM Bucuresti', '/assets/teams/csmbucuresti.png', '2025-12-17 18:00:00', 'Acasă', 'Divizia A1'),
+    ('CSM Bucuresti', '/assets/teams/csmbucuresti.png', '2025-12-17 19:00:00', 'Acasă', 'Divizia A1'),
     ('CS Stiinta Explorari Baia Mare', '/assets/teams/baiamare.png', '2026-01-10 18:00:00', 'Deplasare', 'Divizia A1'),
     ('Arcada Galati', '/assets/teams/arcada.png', '2026-01-17 18:00:00', 'Deplasare', 'Divizia A1');
 
