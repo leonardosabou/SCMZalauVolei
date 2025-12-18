@@ -1,5 +1,6 @@
 package scmzalauvolei.scmzalauvoleiBE.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -49,9 +50,7 @@ public class HomeController {
 
     @GetMapping("/next-match")
     public ResponseEntity<MatchGame> getNextMatch(){
-        MatchGame nextMatch = matchRepository.findFirstByDateAfterAndIsFinishedFalseOrderByDateAsc(
-                LocalDateTime.now().minusHours(3)
-        );
+        MatchGame nextMatch = matchRepository.findFirstByDateAfterAndIsFinishedFalseOrderByDateAsc(LocalDateTime.now().minusHours(3));
 
         if(nextMatch != null){
             return ResponseEntity.ok(nextMatch);
@@ -81,7 +80,7 @@ public class HomeController {
 
     @GetMapping("/program")
     public List<MatchGame> getAllMatches(){
-        return matchRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
+        return matchRepository.findAllByDateAfterOrderByDateAsc(LocalDateTime.now());
     }
 
     @GetMapping("/standings")

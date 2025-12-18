@@ -43,7 +43,8 @@ VALUES
     ('Etapa VI', '/assets/results/etapa6.png'),
     ('Etapa VII', '/assets/results/etapa7.png'),
     ('Etapa VIII', '/assets/results/etapa8.png'),
-    ('Etapa IX', '/assets/results/etapa9.png');
+    ('Etapa IX', '/assets/results/etapa9.png'),
+    ('Etapa X', '/assets/results/etapa10.png');
 
 INSERT INTO game_highlight (type, media_url, description)
 VALUES
