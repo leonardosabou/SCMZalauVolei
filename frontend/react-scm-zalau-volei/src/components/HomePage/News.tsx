@@ -28,7 +28,7 @@ export const News = () => {
         </div>
 
         <div className="news-grid">
-          {newsList.map((item) => (
+          {newsList.slice(0, 2).map((item) => (
             <a
               key={item.id}
               href={item.linkUrl}

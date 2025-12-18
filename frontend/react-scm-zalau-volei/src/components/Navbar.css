@@ -1,9 +1,10 @@
 .navbar {
   background-color: var(--primary-blue);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1rem 0;
+  padding: 0.3rem 0;
   border-bottom: 4px solid var(--accent-red);
   transition: all 0.3s ease;
+  margin-bottom: 0;
 }
 
 .navbar .nav-link {
@@ -15,6 +16,11 @@
 
 .navbar .nav-link:hover {
   color: var(--accent-yellow) !important;
+}
+
+.navbar-brand img{
+  max-height: 50px;
+  width:auto;
 }
 
 .btn-custom {

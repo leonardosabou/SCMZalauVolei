@@ -25,7 +25,8 @@
 
 .custom-news-container {
   width: 90%;
-  max-width: 1800px;
+  /* CHANGED: Reduced from 1800px to 1200px to make cards smaller/neater */
+  max-width: 1000px;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
@@ -33,13 +34,16 @@
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  gap: 2.5rem;
+  /* CHANGED: Forces exactly 2 equal columns on Desktop */
+  grid-template-columns: 1fr 1fr;
+  gap: 5.5rem;
   width: 100%;
 }
 
+/* MOBILE LAYOUT */
 @media (max-width: 768px) {
   .news-grid {
+    /* CHANGED: Forces exactly 1 column on Mobile */
     grid-template-columns: 1fr;
   }
 
@@ -56,8 +60,9 @@
   box-shadow: var(--shadow-card);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-
   height: auto;
+  /* Optional: ensures they don't get impossibly wide on weird screens */
+  width: 100%;
 }
 
 .modern-card:hover {
