@@ -65,7 +65,7 @@ public class HomeController {
 
     @GetMapping("/highlights")
     public List<GameHighlight> getHighlights(){
-        return gameHighlightRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        return gameHighlightRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     @GetMapping("/team/players")

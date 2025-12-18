@@ -48,9 +48,11 @@ VALUES
 
 INSERT INTO game_highlight (type, media_url, description)
 VALUES
-    ('image', '/assets/highlights/new-book-1.png', 'Atac Zalau'),
-    ('image', '/assets/highlights/new-book-2.png', 'Blocaj Zalau'),
-    ('video', '/assets/highlights/werty_im_4k_g2.mp4', 'Punctul decisiv');
+    ('image', '/assets/highlights/2025brasov1.png', 'Punct castigat Cveticanin'),
+    ('image', '/assets/highlights/2025brasov2.png', 'Punct castigat'),
+    ('image', '/assets/highlights/2025brasov3.png', 'Blocaj Teppan Mendosa'),
+    ('image', '/assets/highlights/2025brasov4.png', 'Punct castigat Teppan'),
+    ('image', '/assets/highlights/2025brasov5.png', 'Meci castigat');
 
 INSERT INTO player (name, shirt_number, nationality, position, height, date_of_birth, image_url, volleybox_url)
 VALUES

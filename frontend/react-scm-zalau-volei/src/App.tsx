@@ -13,10 +13,12 @@ import { HomePage } from "./components/HomePage";
 import { TeamPage } from "./components/TeamPage/TeamPage";
 import { ProgramPage } from "./components/ProgramPage/ProgramPage";
 import { ResultsPage } from "./components/ResultsPage/ResultsPage";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Navbar />
         <Routes>
