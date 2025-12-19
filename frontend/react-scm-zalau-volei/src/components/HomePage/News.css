@@ -25,7 +25,6 @@
 
 .custom-news-container {
   width: 90%;
-  /* CHANGED: Reduced from 1800px to 1200px to make cards smaller/neater */
   max-width: 1000px;
   margin: 0 auto;
   padding-left: 15px;
@@ -34,16 +33,13 @@
 
 .news-grid {
   display: grid;
-  /* CHANGED: Forces exactly 2 equal columns on Desktop */
   grid-template-columns: 1fr 1fr;
   gap: 5.5rem;
   width: 100%;
 }
 
-/* MOBILE LAYOUT */
 @media (max-width: 768px) {
   .news-grid {
-    /* CHANGED: Forces exactly 1 column on Mobile */
     grid-template-columns: 1fr;
   }
 
@@ -54,15 +50,15 @@
 
 .modern-card {
   display: block;
-  background: white;
+  background: black; /* Dark background behind image */
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   height: auto;
-  /* Optional: ensures they don't get impossibly wide on weird screens */
   width: 100%;
+  text-decoration: none; /* Removes underline from the whole card */
 }
 
 .modern-card:hover {
@@ -73,6 +69,7 @@
 .card-image-wrapper {
   width: 100%;
   display: block;
+  position: relative; /* Needed for overlay positioning */
 }
 
 .news-img {
@@ -83,6 +80,47 @@
   transition: transform 0.5s ease;
 }
 
+/* --- NEW STYLES FOR OVERLAY --- */
+
+.news-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  /* The "blackish" gradient */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  transition: background 0.3s ease;
+}
+
+.modern-card:hover .news-overlay {
+  /* Darken slightly on hover for effect */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, rgba(0, 0, 0, 0.4));
+}
+
 .modern-card:hover .news-img {
   transform: scale(1.02);
+}
+
+.news-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  color: white;
+}
+
+.btn-read-more {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f2c300; /* Accent Yellow */
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }

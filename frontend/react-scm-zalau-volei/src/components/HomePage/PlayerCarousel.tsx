@@ -1,11 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
-import "./PlayerCarousel.css"; 
+import "./PlayerCarousel.css";
 
 interface GameHighlight {
   id: number;
-  type: "image" | "video"; 
+  type: "image" | "video";
   mediaUrl: string;
-  description: string;
 }
 
 export const PlayerCarousel = () => {
@@ -15,7 +14,12 @@ export const PlayerCarousel = () => {
   useEffect(() => {
     fetch("http://localhost:8080/api/home/highlights")
       .then((res) => res.json())
-      .then((data) => setHighlights(data))
+      .then((data) => {
+        const carouselItems = data.filter((item: GameHighlight) =>
+          item.mediaUrl.includes("/assets/highlights/")
+        );
+        setHighlights(carouselItems);
+      })
       .catch((err) => console.error("Error fetching highlights:", err));
   }, []);
 
@@ -36,9 +40,13 @@ export const PlayerCarousel = () => {
       const deltaX = startX - endX;
       if (Math.abs(deltaX) > 50) {
         if (deltaX > 0) {
-          carousel.querySelector<HTMLButtonElement>(".carousel-control-next")?.click();
+          carousel
+            .querySelector<HTMLButtonElement>(".carousel-control-next")
+            ?.click();
         } else {
-          carousel.querySelector<HTMLButtonElement>(".carousel-control-prev")?.click();
+          carousel
+            .querySelector<HTMLButtonElement>(".carousel-control-prev")
+            ?.click();
         }
       }
     };
@@ -59,10 +67,9 @@ export const PlayerCarousel = () => {
   return (
     <section className="player-carousel-section">
       <div className="container carousel-container">
-        
         {/* Optional Title */}
         <div className="text-center mb-4">
-           <h2 className="section-title">GALERIE MEDIA</h2>
+          <h2 className="section-title">GALERIE MEDIA</h2>
         </div>
 
         <div
@@ -82,14 +89,9 @@ export const PlayerCarousel = () => {
                     <img
                       src={item.mediaUrl}
                       className="img-vertical"
-                      alt={item.description}
                     />
                   ) : (
-                    <video
-                      className="video-vertical" 
-                      controls
-                      playsInline
-                    >
+                    <video className="video-vertical" controls playsInline>
                       <source src={item.mediaUrl} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -105,7 +107,10 @@ export const PlayerCarousel = () => {
             data-bs-target="#carouselHighlights"
             data-bs-slide="prev"
           >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
@@ -114,13 +119,19 @@ export const PlayerCarousel = () => {
             data-bs-target="#carouselHighlights"
             data-bs-slide="next"
           >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>
 
         <div className="text-center mt-4">
-          <a className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold" href="#">
+          <a
+            className="btn btn-gallery-light px-4 py-2 rounded-pill fw-bold"
+            href="/galerie"
+          >
             Vezi Galerie Foto
           </a>
         </div>

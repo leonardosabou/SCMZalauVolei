@@ -52,9 +52,14 @@ export const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-3" href="#">
+              <NavLink className="nav-link px-3" to="/stiri">
+                ȘTIRI
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link px-3" to="/galerie">
                 GALERIE FOTO
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item ms-lg-2">
               <a className="btn btn-custom btn-sm" href="#">

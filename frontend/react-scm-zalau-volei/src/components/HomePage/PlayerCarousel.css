@@ -8,10 +8,10 @@
   content: "";
   position: absolute;
   inset: 0;
-/*  background-image: url("../../Images/PublicImages/image-4.jpg");*/
+  background-image: url("../../Images/stands.png");
   background-size: cover;
   background-position: center;
-  filter: blur(15px) brightness(0.6);
+  filter: blur(8px) brightness(0.4);
   z-index: -1;
   transform: scale(1.1);
 }
@@ -90,4 +90,22 @@
     height: 2.5rem;
     background-size: 40%;
   }
+}
+
+.btn-gallery-light {
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-gallery-light:hover {
+  background-color: #ffffff;
+  color: var(--primary-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
 }

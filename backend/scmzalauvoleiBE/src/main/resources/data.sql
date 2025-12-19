@@ -13,8 +13,10 @@ INSERT INTO sponsor (name, logo_url, display_order)
 
 INSERT INTO news_item (title, image_url, link_url, date)
 VALUES
-    ('Victorie fara drept de apel', '/assets/news/stire1.png', 'https://www.sportulsalajean.ro/foto-victorie-fara-drept-de-apel-a-voleibalistilor-de-la-scm-zalau-in-etapa-a-x-a-a-diviziei-a1-a-280631', '2025-12-18'),
-    ('Ultima disputa din 2025', '/assets/news/stire2.png', 'https://graiulsalajului.ro/ultima-disputa-oficiala-la-fileul-zalauan-a-223326', '2025-12-16');
+    ('Victorie fără drept de apel', '/assets/news/stire1.png', 'https://www.sportulsalajean.ro/foto-victorie-fara-drept-de-apel-a-voleibalistilor-de-la-scm-zalau-in-etapa-a-x-a-a-diviziei-a1-a-280631', '2025-12-18'),
+    ('Ultima dispută din 2025', '/assets/news/stire2.png', 'https://graiulsalajului.ro/ultima-disputa-oficiala-la-fileul-zalauan-a-223326', '2025-12-16'),
+    ('Prima apariție după calificările în optimile CEV Challenge Cup', '/assets/news/stire4.png', 'https://www.sportulsalajean.ro/prima-aparitie-a-voleibalistilor-de-la-scm-zalau-dupa-calificarea-in-optimile-cev-challenge-cup-echipa-de-sub-poalele-mesesului-va-intalni-maine-in-deplasare-cs-unirea-dej-a-280373', '2025-12-12'),
+    ('SCM Zalău bifează încă o victorie', '/assets/news/stire3.png', 'https://www.sportulsalajean.ro/scm-zalau-bifeaza-inca-o-victorie-in-divia-a1-de-data-aceasta-impotriva-celor-de-la-unirea-dej-a-280462', '2025-12-13');
 
 
 INSERT INTO match_game (opponent, opponent_logo_url, date, location, competition, is_finished)
@@ -46,13 +48,28 @@ VALUES
     ('Etapa IX', '/assets/results/etapa9.png'),
     ('Etapa X', '/assets/results/etapa10.png');
 
-INSERT INTO game_highlight (type, media_url, description)
+INSERT INTO game_highlight (type, media_url)
 VALUES
-    ('image', '/assets/highlights/2025brasov1.png', 'Punct castigat Cveticanin'),
-    ('image', '/assets/highlights/2025brasov2.png', 'Punct castigat'),
-    ('image', '/assets/highlights/2025brasov3.png', 'Blocaj Teppan Mendosa'),
-    ('image', '/assets/highlights/2025brasov4.png', 'Punct castigat Teppan'),
-    ('image', '/assets/highlights/2025brasov5.png', 'Meci castigat');
+    ('image', '/assets/highlights/1.png'),
+    ('image', '/assets/highlights/2.png'),
+    ('image', '/assets/highlights/3.png'),
+    ('image', '/assets/highlights/4.png'),
+    ('image', '/assets/highlights/5.png');
+
+INSERT INTO game_highlight(type, media_url)
+VALUES
+    ('image', '/assets/gallery/1.png'),
+    ('image', '/assets/gallery/2.png'),
+    ('image', '/assets/gallery/3.png'),
+    ('image', '/assets/gallery/4.png'),
+    ('image', '/assets/gallery/5.png'),
+    ('image', '/assets/gallery/6.png'),
+    ('image', '/assets/gallery/7.png'),
+    ('image', '/assets/gallery/8.png'),
+    ('image', '/assets/gallery/9.png'),
+    ('image', '/assets/gallery/10.png'),
+    ('image', '/assets/gallery/11.png'),
+    ('image', '/assets/gallery/12.png');
 
 INSERT INTO player (name, shirt_number, nationality, position, height, date_of_birth, image_url, volleybox_url)
 VALUES

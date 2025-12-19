@@ -13,7 +13,9 @@ import { HomePage } from "./components/HomePage";
 import { TeamPage } from "./components/TeamPage/TeamPage";
 import { ProgramPage } from "./components/ProgramPage/ProgramPage";
 import { ResultsPage } from "./components/ResultsPage/ResultsPage";
+import { NewsPage } from "./components/NewsPage/NewsPage";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { GalleryPage } from "./components/GalleryPage/GalleryPage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/echipa" element={<TeamPage />} />
           <Route path="/program" element={<ProgramPage />} />
           <Route path="/rezultate" element={<ResultsPage />} />
+          <Route path="/stiri" element={<NewsPage />} />
+          <Route path="/galerie" element={<GalleryPage />} />
         </Routes>
         <Footer />
       </div>

@@ -46,7 +46,7 @@ export const Results = () => {
         <div className="text-center mt-5">
           <a
             className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold"
-            href="#"
+            href="/rezultate"
           >
             Vezi Toate Rezultatele
           </a>

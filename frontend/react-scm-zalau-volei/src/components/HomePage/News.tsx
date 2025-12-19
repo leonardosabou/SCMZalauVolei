@@ -37,14 +37,26 @@ export const News = () => {
               className="modern-card"
             >
               <div className="card-image-wrapper">
-                <img src={item.imageUrl} alt={item.title} className="news-img" />
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="news-img"
+                />
+                {/* Added Overlay Section */}
+                <div className="news-overlay">
+                  <h3 className="news-title">{item.title}</h3>
+                  <span className="btn-read-more">Citește tot articolul</span>
+                </div>
               </div>
             </a>
           ))}
         </div>
 
         <div className="text-center mt-5">
-          <a className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold" href="#">
+          <a
+            className="btn btn-outline-dark px-4 py-2 rounded-pill fw-bold"
+            href="/stiri"
+          >
             Vezi Toate Știrile
           </a>
         </div>
