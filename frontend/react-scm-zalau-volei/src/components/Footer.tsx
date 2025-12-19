@@ -35,22 +35,47 @@ export const Footer = () => {
           <div className="col-lg-4 col-md-12">
             <h5 className="footer-title mb-4">URMĂREȘTE-NE</h5>
             <div className="d-flex gap-3 mb-4">
-              <a href="#" className="social-icon">
+              {/* FACEBOOK */}
+              <a
+                href="https://www.facebook.com/voleiscmzalau"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="Facebook"
+              >
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="#" className="social-icon">
+
+              {/* INSTAGRAM */}
+              <a
+                href="https://www.instagram.com/scm_zalau_volei"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="Instagram"
+              >
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="#" className="social-icon">
+
+              {/* YOUTUBE */}
+              <a
+                href="https://www.youtube.com/@scmzalau3328"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="YouTube"
+              >
                 <i className="bi bi-youtube"></i>
               </a>
             </div>
+{/*
             <a
               className="btn btn-outline-light btn-sm rounded-pill px-4"
-              href="#"
+              href="/contact"
             >
               Devino Sponsor
             </a>
+*/}
           </div>
         </div>
 

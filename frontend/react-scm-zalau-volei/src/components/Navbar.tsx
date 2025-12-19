@@ -61,11 +61,13 @@ export const Navbar = () => {
                 GALERIE FOTO
               </NavLink>
             </li>
+            {/* 
             <li className="nav-item ms-lg-2">
               <a className="btn btn-custom btn-sm" href="#">
                 Intră în cont
               </a>
             </li>
+            */}
           </ul>
         </div>
       </div>
