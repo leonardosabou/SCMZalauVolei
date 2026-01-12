@@ -19,15 +19,15 @@ export const Footer = () => {
             <ul className="list-unstyled footer-links">
               <li className="mb-3">
                 <i className="bi bi-geo-alt-fill me-2 text-danger"></i>
-                Sala Sporturilor, Zalău
+                Str. Stadionului nr. 5, Zalău
               </li>
               <li className="mb-3">
                 <i className="bi bi-envelope-fill me-2 text-danger"></i>
-                contact@scmzalau.ro
+                volei.scmzalau@gmail.com, scmzalau@gmail.com
               </li>
               <li className="mb-3">
                 <i className="bi bi-telephone-fill me-2 text-danger"></i>
-                +40 123 456 789
+                0745 637 050
               </li>
             </ul>
           </div>
@@ -68,14 +68,14 @@ export const Footer = () => {
                 <i className="bi bi-youtube"></i>
               </a>
             </div>
-{/*
+
             <a
               className="btn btn-outline-light btn-sm rounded-pill px-4"
               href="/contact"
             >
               Devino Sponsor
             </a>
-*/}
+
           </div>
         </div>
 
