@@ -16,14 +16,16 @@ VALUES
     ('Victorie fără drept de apel', '/assets/news/stire1.png', 'https://www.sportulsalajean.ro/foto-victorie-fara-drept-de-apel-a-voleibalistilor-de-la-scm-zalau-in-etapa-a-x-a-a-diviziei-a1-a-280631', '2025-12-18'),
     ('Ultima dispută din 2025', '/assets/news/stire2.png', 'https://graiulsalajului.ro/ultima-disputa-oficiala-la-fileul-zalauan-a-223326', '2025-12-16'),
     ('Prima apariție după calificările în optimile CEV Challenge Cup', '/assets/news/stire4.png', 'https://www.sportulsalajean.ro/prima-aparitie-a-voleibalistilor-de-la-scm-zalau-dupa-calificarea-in-optimile-cev-challenge-cup-echipa-de-sub-poalele-mesesului-va-intalni-maine-in-deplasare-cs-unirea-dej-a-280373', '2025-12-12'),
-    ('SCM Zalău bifează încă o victorie', '/assets/news/stire3.png', 'https://www.sportulsalajean.ro/scm-zalau-bifeaza-inca-o-victorie-in-divia-a1-de-data-aceasta-impotriva-celor-de-la-unirea-dej-a-280462', '2025-12-13');
+    ('SCM Zalău bifează încă o victorie', '/assets/news/stire3.png', 'https://www.sportulsalajean.ro/scm-zalau-bifeaza-inca-o-victorie-in-divia-a1-de-data-aceasta-impotriva-celor-de-la-unirea-dej-a-280462', '2025-12-13'),
+    ('O mutare importantă', '/assets/news/stire5.png', 'https://www.sportulsalajean.ro/scm-zalau-incepe-anul-2026-cu-o-mutare-importanta-a-281250', '2026-01-06'),
+    ('3 puncte la Baia Mare', '/assets/news/stire6.png', 'https://www.sportulsalajean.ro/obiectiv-indeplinit-3-puncte-la-baia-mare-voleibalistii-zalauani-se-impun-clar-in-primul-meci-oficial-din-acest-an-a-281397', '2026-01-10');
 
 
 INSERT INTO match_game (opponent, opponent_logo_url, date, location, competition, is_finished)
 VALUES
     ('CSM București', '/assets/teams/csmbucuresti.png', '2025-12-17 19:00:00', 'Acasă', 'Divizia A1', false),
     ('CS Știința Explorări Baia Mare', '/assets/teams/baiamare.png', '2026-01-10 18:00:00', 'Deplasare', 'Divizia A1', false),
-    ('Arcada Galați', '/assets/teams/arcada.png', '2026-01-17 18:00:00', 'Deplasare', 'Divizia A1', false),
+    ('Arcada Galați', '/assets/teams/arcada.png', '2026-01-17 18:00:00', 'Deplasare', 'Divizia A1', true),
     ('CS Dinamo București', '/assets/teams/dinamo.png', '2026-01-24 18:00:00', 'Acasă', 'Divizia A1', false),
     ('CS Rapid București', '/assets/teams/rapid.png', '2026-01-31 18:00:00', 'Deplasare', 'Divizia A1', false),
     ('CSU Știința Politehnica București', '/assets/teams/polibucuresti.png', '2026-02-04 18:00:00', 'Deplasare', 'Cupa României', false),
@@ -46,7 +48,9 @@ VALUES
     ('Etapa VII', '/assets/results/etapa7.png'),
     ('Etapa VIII', '/assets/results/etapa8.png'),
     ('Etapa IX', '/assets/results/etapa9.png'),
-    ('Etapa X', '/assets/results/etapa10.png');
+    ('Etapa X', '/assets/results/etapa10.png'),
+    ('Etapa XII', '/assets/results/etapa12.png'),
+    ('Etapa XIII', '/assets/results/etapa13.png');
 
 INSERT INTO game_highlight (type, media_url)
 VALUES
@@ -83,6 +87,7 @@ VALUES
     ('Filip Cvetićanin', 77, 'PORTUGAL, SERBIA', 'Centru', '201 cm', '1996-06-19', 'assets/team/cveticanin.png', 'https://volleybox.net/filip-cveticanin-p5648/clubs'),
     ('Albert Hurt', 24, 'ESTONIA', 'Extremă/Secund', '190 cm', '1999-04-22', 'assets/team/hurt.png', 'https://volleybox.net/albert-hurt-p31647/clubs'),
     ('Gabriel Vilaça', 13, 'BRAZIL', 'Centru', '201 cm', '2002-06-23', 'assets/team/vilaca.png', 'https://volleybox.net/gabriel-vilaca-p76997/clubs'),
+    /* adaugat cuk si brazilianul nou */
     ('Alexandru Ionescu', 28, 'ROMANIA', 'Universal', '208 cm', '1998-07-22', 'assets/team/ionescu.png', 'https://volleybox.net/alexandru-ionescu-p33334/clubs'),
     ('Dragoș Crișan', 21, 'ROMANIA', 'Libero', '175 cm', '2008-04-12', 'assets/team/crisan.png', 'https://volleybox.net/drago-crian-p145990/indoor_tournaments'),
     ('David Onuțe', 11, 'ROMANIA', 'Extremă/Secund', '191 cm', '2010-10-22', 'assets/team/onute.png', 'https://volleybox.net/david-gabriel-onue-p275225/clubs'),
@@ -93,7 +98,7 @@ INSERT INTO staff (name, role, image_url) VALUES
     ('Adrian Feher', 'Antrenor principal', '/assets/team/feher.png'),
     ('Marius Lazăr', 'Antrenor secund', '/assets/team/lazar.png'),
     ('Istvan Major', 'Fizioterapeut', '/assets/team/major.png'),
-/*    ('Călin Marincaș', 'Preparator fizic', '/assets/team/marincas.jpg'),*/
+/*    ('Călin Marincaș', 'Preparator fizic', '/assets/team/marincas.jpg'), trebuie poza la marincas*/
     ('Tudor Lazăr', 'Statistician', '/assets/team/lazar2.png'),
     ('Gabriel Terheș', 'Director sportiv', 'assets/team/terhes.png');
 
