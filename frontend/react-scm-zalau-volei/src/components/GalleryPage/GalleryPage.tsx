@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import API_URL from "../../config";
 import "./GalleryPage.css";
 
 interface GameHighlight {
@@ -12,13 +13,11 @@ export const GalleryPage = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/highlights")
+    fetch(`${API_URL}/api/home/highlights`)
       .then((res) => res.json())
       .then((data) => {
-        // 1. Get EVERYTHING (Images AND Videos)
         const allMedia = [...data];
 
-        // 2. Random Shuffle (Fisher-Yates algorithm)
         for (let i = allMedia.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [allMedia[i], allMedia[j]] = [allMedia[j], allMedia[i]];
@@ -29,16 +28,15 @@ export const GalleryPage = () => {
       .catch((err) => console.error("Error fetching gallery:", err));
   }, []);
 
-  // --- Lightbox Logic ---
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
-    document.body.style.overflow = "hidden"; // Disable scroll
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setLightboxIndex(null);
-    document.body.style.overflow = "auto"; // Re-enable scroll
+    document.body.style.overflow = "auto";
   };
 
   const nextImage = useCallback(
@@ -83,7 +81,7 @@ export const GalleryPage = () => {
       </div>
 
       <div className="container gallery-container">
-        {/* Masonry Grid */}
+
         <div className="gallery-grid">
           {items.map((item, index) => (
             <div
@@ -95,7 +93,6 @@ export const GalleryPage = () => {
                 <img src={item.mediaUrl} loading="lazy" />
               ) : (
                 <div className="video-thumbnail-wrapper">
-                  {/* Video Preview in Grid */}
                   <video
                     src={item.mediaUrl}
                     className="gallery-video-preview"
@@ -118,7 +115,6 @@ export const GalleryPage = () => {
         )}
       </div>
 
-      {/* Lightbox Overlay */}
       {lightboxIndex !== null && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <button className="lightbox-close-btn" onClick={closeLightbox}>
@@ -133,7 +129,6 @@ export const GalleryPage = () => {
             className="lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Conditional Rendering inside Lightbox */}
             {items[lightboxIndex].type === "image" ? (
               <img src={items[lightboxIndex].mediaUrl} />
             ) : (

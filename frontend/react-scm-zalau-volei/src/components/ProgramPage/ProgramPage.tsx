@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import API_URL from "../../config";
 import "./ProgramPage.css";
 import myLogo from "../../Images/scmzalaulogopng.png";
 
@@ -28,7 +29,7 @@ export const ProgramPage = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/program")
+    fetch(`${API_URL}/api/home/program`)
       .then((res) => res.json())
       .then((data) => setMatches(data))
       .catch((err) => console.error("Error fetching program:", err));

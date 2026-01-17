@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import API_URL from "../../config";
 import "./Countdown.css";
 import myLogo from "../../Images/scmzalaulogopng.png";
 
@@ -16,7 +17,7 @@ export const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState<string>("Se încarcă...");
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/next-match")
+    fetch(`${API_URL}/api/home/next-match`)
       .then((res) => {
         if (res.status === 204) return null;
         return res.json();

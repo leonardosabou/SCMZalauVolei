@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import API_URL from "../../config";
 import "./ResultsPage.css";
 
 interface MatchResult {
@@ -19,12 +20,12 @@ export const ResultsPage = () => {
   const [standings, setStandings] = useState<Standing[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/standings")
+    fetch(`${API_URL}/api/home/standings`)
       .then((res) => res.json())
       .then((data) => setStandings(data))
       .catch((err) => console.error("Error fetching standings:", err));
 
-    fetch("http://localhost:8080/api/home/results")
+    fetch(`${API_URL}/api/home/results`)
       .then((res) => res.json())
       .then((data) => setResults(data))
       .catch((err) => console.error("Error fetching results:", err));

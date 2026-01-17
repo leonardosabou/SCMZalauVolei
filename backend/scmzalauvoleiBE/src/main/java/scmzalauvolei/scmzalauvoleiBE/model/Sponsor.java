@@ -10,6 +10,8 @@ public class Sponsor {
 
     private String name;
     private String logoUrl;
+
+    private String linkUrl;
     private Integer displayOrder;
 
     public Long getId() { return id; }
@@ -20,6 +22,9 @@ public class Sponsor {
 
     public String getLogoUrl() { return logoUrl; }
     public void setLogoUrl(String logoUrl) { this.logoUrl = logoUrl; }
+
+    public String getLinkUrl() { return linkUrl; }
+    public void setLinkUrl(String linkUrl) { this.linkUrl = linkUrl; }
 
     public Integer getDisplayOrder() { return displayOrder; }
     public void setDisplayOrder(Integer displayOrder) { this.displayOrder = displayOrder; }

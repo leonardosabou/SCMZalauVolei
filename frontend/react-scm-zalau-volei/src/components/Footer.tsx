@@ -35,7 +35,6 @@ export const Footer = () => {
           <div className="col-lg-4 col-md-12">
             <h5 className="footer-title mb-4">URMĂREȘTE-NE</h5>
             <div className="d-flex gap-3 mb-4">
-              {/* FACEBOOK */}
               <a
                 href="https://www.facebook.com/voleiscmzalau"
                 target="_blank"
@@ -46,7 +45,6 @@ export const Footer = () => {
                 <i className="bi bi-facebook"></i>
               </a>
 
-              {/* INSTAGRAM */}
               <a
                 href="https://www.instagram.com/scm_zalau_volei"
                 target="_blank"
@@ -57,7 +55,6 @@ export const Footer = () => {
                 <i className="bi bi-instagram"></i>
               </a>
 
-              {/* YOUTUBE */}
               <a
                 href="https://www.youtube.com/@scmzalau3328"
                 target="_blank"

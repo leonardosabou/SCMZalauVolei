@@ -61,6 +61,11 @@ export const Navbar = () => {
                 GALERIE FOTO
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link px-3" to="/contact">
+                CONTACT
+              </NavLink>
+            </li>
             {/* 
             <li className="nav-item ms-lg-2">
               <a className="btn btn-custom btn-sm" href="#">

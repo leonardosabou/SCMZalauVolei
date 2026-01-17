@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
+import API_URL from "../../config";
 import "./Sponsors.css";
 
 interface Sponsor {
   id: number;
   name: string;
   logoUrl: string;
+  linkUrl: string;
 }
 
 export const Sponsors = () => {
@@ -13,7 +15,7 @@ export const Sponsors = () => {
   const [slides, setSlides] = useState<Sponsor[][]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/sponsors")
+    fetch(`${API_URL}/api/home/sponsors`)
       .then((res) => res.json())
       .then((data) => setSponsors(data))
       .catch((err) => console.error("Error fetching sponsors:", err));
@@ -53,11 +55,19 @@ export const Sponsors = () => {
                 <div className="row justify-content-center align-items-center">
                   {group.map((sponsor) => (
                     <div key={sponsor.id} className="col-6 col-md-3 d-flex justify-content-center p-2 p-md-4">
-                      <img
-                        src={sponsor.logoUrl}
-                        alt={sponsor.name}
-                        className="sponsor-img img-fluid"
-                      />
+                      <a 
+                        href={sponsor.linkUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="d-block w-100 text-center"
+                        style={{ textDecoration: 'none' }}
+                      >
+                        <img
+                          src={sponsor.logoUrl}
+                          alt={sponsor.name}
+                          className="sponsor-img img-fluid"
+                        />
+                      </a>
                     </div>
                   ))}
                 </div>

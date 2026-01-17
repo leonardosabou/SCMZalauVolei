@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_URL from "../../config";
 import "./Results.css";
 
 interface MatchResult {
@@ -11,7 +12,7 @@ export const Results = () => {
   const [results, setResults] = useState<MatchResult[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/results")
+    fetch(`${API_URL}/api/home/results`)
       .then((res) => res.json())
       .then((data) => setResults(data))
       .catch((err) => console.error("Error fetching results:", err));

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import API_URL from "../../config";
 import "./NewsPage.css";
 
 interface NewsItem {
@@ -13,7 +14,7 @@ export const NewsPage = () => {
   const [newsList, setNewsList] = useState<NewsItem[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/news")
+    fetch(`${API_URL}/api/home/news`)
       .then((res) => res.json())
       .then((data) => setNewsList(data))
       .catch((err) => console.error("Error fetching news:", err));
@@ -22,7 +23,6 @@ export const NewsPage = () => {
   const formatDate = (dateString: string) => {
     if (!dateString) return "";
     const date = new Date(dateString);
-    // Format: 18 Decembrie 2025
     return date.toLocaleDateString("ro-RO", {
       day: "numeric",
       month: "long",
@@ -43,8 +43,7 @@ export const NewsPage = () => {
         <div className="row g-5">
           {newsList.map((item) => (
             <div className="col-lg-6 col-md-12" key={item.id}>
-              
-              {/* DATE DISPLAY (On top of the card) */}
+
               <div className="news-date-label">
                 <i className="bi bi-calendar-event me-2"></i>
                 {formatDate(item.date)}

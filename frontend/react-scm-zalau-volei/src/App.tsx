@@ -16,6 +16,7 @@ import { ResultsPage } from "./components/ResultsPage/ResultsPage";
 import { NewsPage } from "./components/NewsPage/NewsPage";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { GalleryPage } from "./components/GalleryPage/GalleryPage";
+import { ContactPage } from "./components/ContactPage/ContactPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/rezultate" element={<ResultsPage />} />
           <Route path="/stiri" element={<NewsPage />} />
           <Route path="/galerie" element={<GalleryPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <Footer />
       </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_URL from "../../config";
 import "./News.css";
 
 interface NewsItem {
@@ -12,7 +13,7 @@ export const News = () => {
   const [newsList, setNewsList] = useState<NewsItem[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/news")
+    fetch(`${API_URL}/api/home/news`)
       .then((res) => res.json())
       .then((data) => setNewsList(data))
       .catch((err) => console.error("Error fetching news:", err));
@@ -42,7 +43,6 @@ export const News = () => {
                   alt={item.title}
                   className="news-img"
                 />
-                {/* Added Overlay Section */}
                 <div className="news-overlay">
                   <h3 className="news-title">{item.title}</h3>
                   <span className="btn-read-more">Citește tot articolul</span>

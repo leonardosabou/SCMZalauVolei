@@ -1,14 +1,14 @@
 
-INSERT INTO sponsor (name, logo_url, display_order)
-    VALUES
-    ('Autodan', '/assets/sponsors/autodan.png', 1),
-    ('Avril', '/assets/sponsors/avril.png', 2),
-    ('Brilliant', '/assets/sponsors/brilliant.jpg', 3),
-    ('CityGroup', '/assets/sponsors/citygroup.png', 4),
-    ('Welthaus', '/assets/sponsors/welthaus.png', 5),
-    ('Rematinvest', '/assets/sponsors/rematinvest.png', 6),
-    ('Silcar', '/assets/sponsors/silcar.png', 7),
-    ('TotalAS', '/assets/sponsors/totalas.png', 8);
+INSERT INTO sponsor (name, logo_url, display_order, link_url)
+VALUES
+    ('Autodan', '/assets/sponsors/autodan.png', 1, '#'),
+    ('Avril', '/assets/sponsors/avril.png', 2, '#'),
+    ('Brilliant', '/assets/sponsors/brilliant.jpg', 3, '#'),
+    ('CityGroup', '/assets/sponsors/citygroup.png', 4, '#'),
+    ('Welthaus', '/assets/sponsors/welthaus.png', 5, '#'),
+    ('Rematinvest', '/assets/sponsors/rematinvest.png', 6, '#'),
+    ('Silcar', '/assets/sponsors/silcar.png', 7, '#'),
+    ('TotalAS', '/assets/sponsors/totalas.png', 8, '#');
 
 
 INSERT INTO news_item (title, image_url, link_url, date)

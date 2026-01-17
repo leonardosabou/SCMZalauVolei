@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import API_URL from "../../config";
 import "./PlayerCarousel.css";
 
 interface GameHighlight {
@@ -12,7 +13,7 @@ export const PlayerCarousel = () => {
   const [highlights, setHighlights] = useState<GameHighlight[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home/highlights")
+    fetch(`${API_URL}/api/home/highlights`)
       .then((res) => res.json())
       .then((data) => {
         const carouselItems = data.filter((item: GameHighlight) =>
@@ -67,7 +68,6 @@ export const PlayerCarousel = () => {
   return (
     <section className="player-carousel-section">
       <div className="container carousel-container">
-        {/* Optional Title */}
         <div className="text-center mb-4">
           <h2 className="section-title">GALERIE MEDIA</h2>
         </div>
