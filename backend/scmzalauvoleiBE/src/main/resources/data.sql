@@ -5,9 +5,9 @@ VALUES
     ('Avril', '/assets/sponsors/avril.png', 2, '#'),
     ('Brilliant', '/assets/sponsors/brilliant.jpg', 3, '#'),
     ('CityGroup', '/assets/sponsors/citygroup.png', 4, '#'),
-    ('Welthaus', '/assets/sponsors/welthaus.png', 5, '#'),
+    ('Welthaus', '/assets/sponsors/welthaus.png', 5, 'https://www.welt-haus.com'),
     ('Rematinvest', '/assets/sponsors/rematinvest.png', 6, '#'),
-    ('Silcar', '/assets/sponsors/silcar.png', 7, '#'),
+    ('Silcar', '/assets/sponsors/silcar.png', 7, 'https://www.silcar.ro'),
     ('TotalAS', '/assets/sponsors/totalas.png', 8, '#');
 
 
@@ -18,15 +18,19 @@ VALUES
     ('Prima apariție după calificările în optimile CEV Challenge Cup', '/assets/news/stire4.png', 'https://www.sportulsalajean.ro/prima-aparitie-a-voleibalistilor-de-la-scm-zalau-dupa-calificarea-in-optimile-cev-challenge-cup-echipa-de-sub-poalele-mesesului-va-intalni-maine-in-deplasare-cs-unirea-dej-a-280373', '2025-12-12'),
     ('SCM Zalău bifează încă o victorie', '/assets/news/stire3.png', 'https://www.sportulsalajean.ro/scm-zalau-bifeaza-inca-o-victorie-in-divia-a1-de-data-aceasta-impotriva-celor-de-la-unirea-dej-a-280462', '2025-12-13'),
     ('O mutare importantă', '/assets/news/stire5.png', 'https://www.sportulsalajean.ro/scm-zalau-incepe-anul-2026-cu-o-mutare-importanta-a-281250', '2026-01-06'),
-    ('3 puncte la Baia Mare', '/assets/news/stire6.png', 'https://www.sportulsalajean.ro/obiectiv-indeplinit-3-puncte-la-baia-mare-voleibalistii-zalauani-se-impun-clar-in-primul-meci-oficial-din-acest-an-a-281397', '2026-01-10');
+    ('3 puncte la Baia Mare', '/assets/news/stire6.png', 'https://www.sportulsalajean.ro/obiectiv-indeplinit-3-puncte-la-baia-mare-voleibalistii-zalauani-se-impun-clar-in-primul-meci-oficial-din-acest-an-a-281397', '2026-01-10'),
+    ('Duel pe podium la Galați', '/assets/news/stire7.png', 'https://www.sportulsalajean.ro/revin-meciurile-de-foc-pentru-scm-zalau-duel-pe-podium-la-galati-a-281609', '2026-01-16'),
+    ('SCM Zalău rămâne în cursa calificării', '/assets/news/stire8.png', 'https://www.sportulsalajean.ro/foto-scm-zalau-invinsa-in-elvetia-dar-ramane-in-cursa-calificarii-a-281867', '2026-01-21'),
+    ('Primul meci din acest an pe teren propriu', '/assets/news/stire9.png', 'https://www.sportulsalajean.ro/primul-meci-din-acest-an-pentru-voleibalistii-de-la-scm-zalau-pe-teren-propriu-a-281959', '2026-01-23');
 
 
 INSERT INTO match_game (opponent, opponent_logo_url, date, location, competition, is_finished)
 VALUES
-    ('CSM București', '/assets/teams/csmbucuresti.png', '2025-12-17 19:00:00', 'Acasă', 'Divizia A1', false),
-    ('CS Știința Explorări Baia Mare', '/assets/teams/baiamare.png', '2026-01-10 18:00:00', 'Deplasare', 'Divizia A1', false),
+    ('CSM București', '/assets/teams/csmbucuresti.png', '2025-12-17 19:00:00', 'Acasă', 'Divizia A1', true),
+    ('CS Știința Explorări Baia Mare', '/assets/teams/baiamare.png', '2026-01-10 18:00:00', 'Deplasare', 'Divizia A1', true),
     ('Arcada Galați', '/assets/teams/arcada.png', '2026-01-17 18:00:00', 'Deplasare', 'Divizia A1', true),
-    ('CS Dinamo București', '/assets/teams/dinamo.png', '2026-01-24 18:00:00', 'Acasă', 'Divizia A1', false),
+    ('CS Dinamo București', '/assets/teams/dinamo.png', '2026-01-24 18:00:00', 'Acasă', 'Divizia A1', true),
+    ('Volley NÄFELS', '/assets/teams/nafels.png', '2026-01-28 18:00:00', 'Acasă', 'CEV Challenge Cup', false),
     ('CS Rapid București', '/assets/teams/rapid.png', '2026-01-31 18:00:00', 'Deplasare', 'Divizia A1', false),
     ('CSU Știința Politehnica București', '/assets/teams/polibucuresti.png', '2026-02-04 18:00:00', 'Deplasare', 'Cupa României', false),
     ('CSA Steaua București', '/assets/teams/steaua.png', '2026-02-07 18:00:00', 'Acasă', 'Divizia A1', false),
@@ -50,7 +54,9 @@ VALUES
     ('Etapa IX', '/assets/results/etapa9.png'),
     ('Etapa X', '/assets/results/etapa10.png'),
     ('Etapa XII', '/assets/results/etapa12.png'),
-    ('Etapa XIII', '/assets/results/etapa13.png');
+    ('Etapa XIII', '/assets/results/etapa13.png'),
+    ('CEV Challenge Cup - Sferturi', '/assets/results/cevsferturi.png'),
+    ('Etapa XIV', '/assets/results/etapa14.png');
 
 INSERT INTO game_highlight (type, media_url)
 VALUES
@@ -58,7 +64,10 @@ VALUES
     ('image', '/assets/highlights/2.png'),
     ('image', '/assets/highlights/3.png'),
     ('image', '/assets/highlights/4.png'),
-    ('image', '/assets/highlights/5.png');
+    ('image', '/assets/highlights/5.png'),
+    ('image', '/assets/highlights/6.png'),
+    ('image', '/assets/highlights/7.png'),
+    ('image', '/assets/highlights/8.png');
 
 INSERT INTO game_highlight(type, media_url)
 VALUES
@@ -73,7 +82,12 @@ VALUES
     ('image', '/assets/gallery/9.png'),
     ('image', '/assets/gallery/10.png'),
     ('image', '/assets/gallery/11.png'),
-    ('image', '/assets/gallery/12.png');
+    ('image', '/assets/gallery/12.png'),
+    ('image', '/assets/gallery/13.png'),
+    ('image', '/assets/gallery/14.png'),
+    ('image', '/assets/gallery/15.png'),
+    ('image', '/assets/gallery/16.png'),
+    ('image', '/assets/gallery/17.png');
 
 INSERT INTO player (name, shirt_number, nationality, position, height, date_of_birth, image_url, volleybox_url)
 VALUES
@@ -82,12 +96,13 @@ VALUES
     ('Victor Hugo Simões', 23, 'BRAZIL', 'Extremă/Secund', '197 cm', '1998-03-20', 'assets/team/simoes.png', 'https://volleybox.net/victor-hugo-simoes-p57597/clubs'),
     ('Cristian-Andrei Bartha', 10, 'ROMANIA', 'Coordonator', '191 cm', '1985-11-29', 'assets/team/bartha.png', 'https://volleybox.net/cristian-bartha-p978/clubs'),
     ('Renee Teppan', 7, 'ESTONIA', 'Universal', '197 cm', '1993-09-26', 'assets/team/teppan.png', 'https://volleybox.net/renee-teppan-p391/clubs'),
+    ('Hiago Garchet', 8, 'BRAZIL', 'Coordonator', '198 cm', '1993-08-21', 'assets/team/hiago.png', 'https://volleybox.net/hiago-garchet-p6107/clubs'),
+    ('Božidar Ćuk', 9, 'MONTENEGRU', 'Extremă/Secund', '202 cm', '1992-06-13', 'assets/team/cuk.png', 'https://volleybox.net/bozidar-cuk-p724/clubs'),
     ('Tim Stöhr', 2, 'GERMANY', 'Extremă/Secund', '202 cm', '1996-08-03', 'assets/team/stohr.png', 'https://volleybox.net/tim-stohr-p27549/clubs'),
     ('Mihai Mărieș', 6, 'ROMANIA', 'Libero', '190 cm', '1988-03-21', 'assets/team/maries.png', 'https://volleybox.net/mihai-marie-p4942/clubs'),
     ('Filip Cvetićanin', 77, 'PORTUGAL, SERBIA', 'Centru', '201 cm', '1996-06-19', 'assets/team/cveticanin.png', 'https://volleybox.net/filip-cveticanin-p5648/clubs'),
     ('Albert Hurt', 24, 'ESTONIA', 'Extremă/Secund', '190 cm', '1999-04-22', 'assets/team/hurt.png', 'https://volleybox.net/albert-hurt-p31647/clubs'),
     ('Gabriel Vilaça', 13, 'BRAZIL', 'Centru', '201 cm', '2002-06-23', 'assets/team/vilaca.png', 'https://volleybox.net/gabriel-vilaca-p76997/clubs'),
-    /* adaugat cuk si brazilianul nou */
     ('Alexandru Ionescu', 28, 'ROMANIA', 'Universal', '208 cm', '1998-07-22', 'assets/team/ionescu.png', 'https://volleybox.net/alexandru-ionescu-p33334/clubs'),
     ('Dragoș Crișan', 21, 'ROMANIA', 'Libero', '175 cm', '2008-04-12', 'assets/team/crisan.png', 'https://volleybox.net/drago-crian-p145990/indoor_tournaments'),
     ('David Onuțe', 11, 'ROMANIA', 'Extremă/Secund', '191 cm', '2010-10-22', 'assets/team/onute.png', 'https://volleybox.net/david-gabriel-onue-p275225/clubs'),
@@ -98,7 +113,7 @@ INSERT INTO staff (name, role, image_url) VALUES
     ('Adrian Feher', 'Antrenor principal', '/assets/team/feher.png'),
     ('Marius Lazăr', 'Antrenor secund', '/assets/team/lazar.png'),
     ('Istvan Major', 'Fizioterapeut', '/assets/team/major.png'),
-/*    ('Călin Marincaș', 'Preparator fizic', '/assets/team/marincas.jpg'), trebuie poza la marincas*/
+    ('Călin Marincaș', 'Preparator fizic', '/assets/team/marincas.png'),
     ('Tudor Lazăr', 'Statistician', '/assets/team/lazar2.png'),
     ('Gabriel Terheș', 'Director sportiv', 'assets/team/terhes.png');
 

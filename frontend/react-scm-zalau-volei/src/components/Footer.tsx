@@ -77,7 +77,7 @@ export const Footer = () => {
         </div>
 
         <div className="footer-bottom text-center mt-5 pt-4">
-          <p className="mb-0 small text-muted">
+          <p className="mb-0 small text-white-50">
             &copy; {new Date().getFullYear()} SCM Zalău Volei. Toate drepturile
             rezervate.
           </p>

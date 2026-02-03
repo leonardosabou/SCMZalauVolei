@@ -22,7 +22,6 @@ export const ContactPage = () => {
               </div>
               <h3 className="contact-label">Telefonic</h3>
               <p className="contact-text mb-2">
-                Ai întrebări urgente? Apelează-ne cu încredere.
               </p>
               <p className="contact-text fw-bold fs-5">
                 <a href="tel:0745637050">0745 637 050</a>
@@ -37,7 +36,6 @@ export const ContactPage = () => {
               </div>
               <h3 className="contact-label">Email</h3>
               <p className="contact-text mb-2">
-                Pentru propuneri de sponsorizare sau alte detalii.
               </p>
               <p className="contact-text">
                 <a href="mailto:volei.scmzalau@gmail.com">volei.scmzalau@gmail.com</a>
