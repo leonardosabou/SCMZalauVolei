@@ -21,8 +21,10 @@ VALUES
     ('3 puncte la Baia Mare', '/assets/news/stire6.png', 'https://www.sportulsalajean.ro/obiectiv-indeplinit-3-puncte-la-baia-mare-voleibalistii-zalauani-se-impun-clar-in-primul-meci-oficial-din-acest-an-a-281397', '2026-01-10'),
     ('Duel pe podium la Galați', '/assets/news/stire7.png', 'https://www.sportulsalajean.ro/revin-meciurile-de-foc-pentru-scm-zalau-duel-pe-podium-la-galati-a-281609', '2026-01-16'),
     ('SCM Zalău rămâne în cursa calificării', '/assets/news/stire8.png', 'https://www.sportulsalajean.ro/foto-scm-zalau-invinsa-in-elvetia-dar-ramane-in-cursa-calificarii-a-281867', '2026-01-21'),
-    ('Primul meci din acest an pe teren propriu', '/assets/news/stire9.png', 'https://www.sportulsalajean.ro/primul-meci-din-acest-an-pentru-voleibalistii-de-la-scm-zalau-pe-teren-propriu-a-281959', '2026-01-23');
-
+    ('Primul meci din acest an pe teren propriu', '/assets/news/stire9.png', 'https://www.sportulsalajean.ro/primul-meci-din-acest-an-pentru-voleibalistii-de-la-scm-zalau-pe-teren-propriu-a-281959', '2026-01-23'),
+    ('Seară de poveste la Zalău', '/assets/news/stire10.png', 'https://graiulsalajului.ro/seara-de-poveste-la-zalau-victorie-si-calificare-in-sferturile-cupei-challenge-a-224939', '2026-01-29'),
+    ('SCM Zalău cucerește Giuleștiul', '/assets/news/stire11.png', 'https://graiulsalajului.ro/scm-zalau-cucereste-giulestiul-dupa-o-victorie-in-cinci-seturi-a-225001', '2026-01-31'),
+    ('SCM Zalău cu un picior în semifinalele Cupei României', '/assets/news/stire12.png', 'https://graiulsalajului.ro/scm-zalau-cu-un-picior-in-semifinalele-cupei-romaniei-a-225085', '2026-02-02');
 
 INSERT INTO match_game (opponent, opponent_logo_url, date, location, competition, is_finished)
 VALUES
@@ -30,9 +32,9 @@ VALUES
     ('CS Știința Explorări Baia Mare', '/assets/teams/baiamare.png', '2026-01-10 18:00:00', 'Deplasare', 'Divizia A1', true),
     ('Arcada Galați', '/assets/teams/arcada.png', '2026-01-17 18:00:00', 'Deplasare', 'Divizia A1', true),
     ('CS Dinamo București', '/assets/teams/dinamo.png', '2026-01-24 18:00:00', 'Acasă', 'Divizia A1', true),
-    ('Volley NÄFELS', '/assets/teams/nafels.png', '2026-01-28 18:00:00', 'Acasă', 'CEV Challenge Cup', false),
-    ('CS Rapid București', '/assets/teams/rapid.png', '2026-01-31 18:00:00', 'Deplasare', 'Divizia A1', false),
-    ('CSU Știința Politehnica București', '/assets/teams/polibucuresti.png', '2026-02-04 18:00:00', 'Deplasare', 'Cupa României', false),
+    ('Volley NÄFELS', '/assets/teams/nafels.png', '2026-01-28 18:00:00', 'Acasă', 'CEV Challenge Cup', true),
+    ('CS Rapid București', '/assets/teams/rapid.png', '2026-01-31 18:00:00', 'Deplasare', 'Divizia A1', true),
+    ('CSU Știința Politehnica București', '/assets/teams/polibucuresti.png', '2026-02-01 18:00:00', 'Deplasare', 'Cupa României', true),
     ('CSA Steaua București', '/assets/teams/steaua.png', '2026-02-07 18:00:00', 'Acasă', 'Divizia A1', false),
     ('CSM Corona Brașov', '/assets/teams/corona.png', '2026-02-14 18:00:00', 'Deplasare', 'Divizia A1', false),
     ('SCMU Craiova', '/assets/teams/craiova.png', '2026-02-21 18:00:00', 'Acasă', 'Divizia A1', false),
@@ -56,7 +58,10 @@ VALUES
     ('Etapa XII', '/assets/results/etapa12.png'),
     ('Etapa XIII', '/assets/results/etapa13.png'),
     ('CEV Challenge Cup - Sferturi', '/assets/results/cevsferturi.png'),
-    ('Etapa XIV', '/assets/results/etapa14.png');
+    ('Etapa XIV', '/assets/results/etapa14.png'),
+    ('CEV Challenge Cup - Sferturi', '/assets/results/cevsferturiretur.png'),
+    ('Etapa XV', '/assets/results/etapa15.png'),
+    ('Cupa Romaniei - Sferturi', '/assets/results/sferturicupatur.png');
 
 INSERT INTO game_highlight (type, media_url)
 VALUES
