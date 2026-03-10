@@ -17,7 +17,7 @@ public class WebConfig {
                         .allowedOrigins(
                                 "http://localhost:3000",
                                 "https://scmzalau-volei.ro",
-                                "https://scm-zalau-frontend.vercel.app"
+                                "https://scm-zalau-volei-d7w6.vercel.app"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
             }
