@@ -21,7 +21,7 @@
   inset: 0;
   
   /* Use the same image as homepage or a different one */
-  background-image: url("../../Images/teamandstands.png"); 
+  background-image: url("../../Images/teamandstands.webp"); 
   background-size: cover;
   background-position: center;
   
