@@ -286,6 +286,38 @@ public class AdminController {
         }
     }
 
+    @PutMapping("/players/{id}")
+    public ResponseEntity<?> updatePlayer(
+            @PathVariable Long id,
+            @RequestParam("name") String name,
+            @RequestParam("shirtNumber") Integer shirtNumber,
+            @RequestParam("nationality") String nationality,
+            @RequestParam("position") String position,
+            @RequestParam("height") String height,
+            @RequestParam("dateOfBirth") String dateOfBirth,
+            @RequestParam(value = "volleyboxUrl", required = false) String volleyboxUrl,
+            @RequestParam(value = "image", required = false) MultipartFile image) {
+        try {
+            Player player = playerRepository.findById(id).orElseThrow(() -> new RuntimeException("Jucător negăsit"));
+            player.setName(name);
+            player.setShirtNumber(shirtNumber);
+            player.setNationality(nationality);
+            player.setPosition(position);
+            player.setHeight(height);
+            player.setDateOfBirth(LocalDate.parse(dateOfBirth));
+            player.setVolleyboxUrl(volleyboxUrl);
+
+            if (image != null && !image.isEmpty()) {
+                String imageUrl = fileUploadService.uploadImage(image);
+                player.setImageUrl(imageUrl);
+            }
+
+            return ResponseEntity.ok(playerRepository.save(player));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(Map.of("error", e.getMessage()));
+        }
+    }
+
     @DeleteMapping("/players/{id}")
     public ResponseEntity<?> deletePlayer(@PathVariable Long id) {
         playerRepository.deleteById(id);
@@ -305,6 +337,28 @@ public class AdminController {
             staff.setName(name);
             staff.setRole(role);
             staff.setImageUrl(imageUrl);
+
+            return ResponseEntity.ok(staffRepository.save(staff));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(Map.of("error", e.getMessage()));
+        }
+    }
+
+    @PutMapping("/staff/{id}")
+    public ResponseEntity<?> updateStaff(
+            @PathVariable Long id,
+            @RequestParam("name") String name,
+            @RequestParam("role") String role,
+            @RequestParam(value = "image", required = false) MultipartFile image) {
+        try {
+            Staff staff = staffRepository.findById(id).orElseThrow(() -> new RuntimeException("Staff negăsit"));
+            staff.setName(name);
+            staff.setRole(role);
+
+            if (image != null && !image.isEmpty()) {
+                String imageUrl = fileUploadService.uploadImage(image);
+                staff.setImageUrl(imageUrl);
+            }
 
             return ResponseEntity.ok(staffRepository.save(staff));
         } catch (Exception e) {

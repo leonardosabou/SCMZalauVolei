@@ -1,5 +1,6 @@
 package scmzalauvolei.scmzalauvoleiBE.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -9,6 +10,8 @@ public class TicketSetting {
     private Long id = 1L;
 
     private boolean visible;
+
+    @Column(length = 1000)
     private String linkUrl;
 
     public Long getId() { return id; }
