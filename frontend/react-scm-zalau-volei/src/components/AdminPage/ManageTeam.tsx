@@ -195,10 +195,10 @@ export const ManageTeam = () => {
                 <div className="col-6"><input type="text" className="form-control" placeholder="Înălțime (ex: 198 cm)" value={pHeight} onChange={e => setPHeight(e.target.value)} required /></div>
                 <div className="col-6">
                   <select className="form-select" value={pPosition} onChange={e => setPPosition(e.target.value)}>
-                    <option value="Secund">Secund</option>
-                    <option value="Ridicător">Ridicător</option>
+                    <option value="Coordonator">Coordonator</option>
+                    <option value="Extremă/Secund">Extremă/Secund</option>
                     <option value="Centru">Centru</option>
-                    <option value="Fals">Fals</option>
+                    <option value="Universal">Universal</option>
                     <option value="Libero">Libero</option>
                   </select>
                 </div>
