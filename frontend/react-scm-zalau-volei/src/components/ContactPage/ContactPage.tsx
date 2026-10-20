@@ -1,4 +1,5 @@
 import React from "react";
+// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./ContactPage.css";
 
 export const ContactPage = () => {

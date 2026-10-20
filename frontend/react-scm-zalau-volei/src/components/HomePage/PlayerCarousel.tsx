@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import API_URL from "../../config";
+// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./PlayerCarousel.css";
 
 interface GameHighlight {
   id: number;
-  type: "image" | "video";
+  type: string;
   mediaUrl: string;
 }
 
@@ -16,10 +17,9 @@ export const PlayerCarousel = () => {
     fetch(`${API_URL}/api/home/highlights`)
       .then((res) => res.json())
       .then((data) => {
-        const carouselItems = data.filter((item: GameHighlight) =>
-          item.mediaUrl.includes("/assets/highlights/")
-        );
-        setHighlights(carouselItems);
+        const latestHighlights = [...data].reverse().slice(0, 8);
+        
+        setHighlights(latestHighlights);
       })
       .catch((err) => console.error("Error fetching highlights:", err));
   }, []);
@@ -84,19 +84,13 @@ export const PlayerCarousel = () => {
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
                 key={item.id}
               >
-                <div className="d-flex justify-content-center align-items-center py-3">
-                  {item.type === "image" ? (
-                    <img
-                      src={item.mediaUrl}
-                      className="img-vertical"
+                <div className="d-flex justify-content-center align-items-cecnter py-3">
+                  <img
+                    src={item.mediaUrl}
+                    className="img-vertical"
+                    alt="Moment din meci"
                     />
-                  ) : (
-                    <video className="video-vertical" controls playsInline>
-                      <source src={item.mediaUrl} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  )}
-                </div>
+                  </div>
               </div>
             ))}
           </div>

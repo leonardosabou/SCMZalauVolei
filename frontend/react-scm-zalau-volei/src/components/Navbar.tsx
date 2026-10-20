@@ -1,5 +1,6 @@
 import React from "react";
 import logoscm from "../Images/scmzalaulogopng.png";
+// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 export const Navbar = () => {

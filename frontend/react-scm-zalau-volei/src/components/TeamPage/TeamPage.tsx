@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API_URL from "../../config";
+// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./TeamPage.css";
 
 interface Player {

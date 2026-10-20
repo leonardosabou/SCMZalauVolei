@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import API_URL from "../../config";
+// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./GalleryPage.css";
 
 interface GameHighlight {
@@ -57,7 +58,6 @@ export const GalleryPage = () => {
     [lightboxIndex, items.length]
   );
 
-  // Keyboard Navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
