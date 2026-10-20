@@ -38,6 +38,9 @@ public class HomeController {
     @Autowired
     private StandingRepository standingRepository;
 
+    @Autowired
+    private TicketSettingRepository ticketSettingRepository;
+
     @GetMapping("/news")
     public List<NewsItem> getNews(){
         return newsRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
@@ -86,5 +89,11 @@ public class HomeController {
     @GetMapping("/standings")
     public List<Standing> getStandings(){
         return standingRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+    }
+
+    @GetMapping("/tickets")
+    public ResponseEntity<?> getTickets() {
+        TicketSetting setting = ticketSettingRepository.findById(1L).orElse(new TicketSetting());
+        return ResponseEntity.ok(setting);
     }
 }

@@ -8,6 +8,7 @@ import { ManageGallery } from "./ManageGallery";
 import { ManageMatches } from "./ManageMatches";
 import { ManageResults } from "./ManageResults";
 import { ManageTeam } from "./ManageTeam";
+import { ManageTickets } from "./ManageTickets";
 
 export const AdminPage = () => {
   const [activeTab, setActiveTab] = useState("news");
@@ -98,6 +99,9 @@ export const AdminPage = () => {
             <button className={`list-group-item list-group-item-action ${activeTab === 'sponsors' ? 'active' : ''}`} onClick={() => setActiveTab('sponsors')}>
               🤝 Sponsori
             </button>
+            <button className={`list-group-item list-group-item-action ${activeTab === 'tickets' ? 'active' : ''}`} onClick={() => setActiveTab('tickets')}>
+              🎟️ Bilete
+            </button>
           </div>
           
           <button onClick={handleLogout} className="btn btn-outline-danger w-100 fw-bold">
@@ -114,6 +118,7 @@ export const AdminPage = () => {
             {activeTab === 'gallery' && <ManageGallery />}
             {activeTab === 'results' && <ManageResults />}
             {activeTab === 'team' && <ManageTeam />}
+            {activeTab === 'tickets' && <ManageTickets />}
           </div>
         </div>
 

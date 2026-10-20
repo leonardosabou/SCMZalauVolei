@@ -44,6 +44,9 @@ public class AdminController {
     @Autowired
     private StaffRepository staffRepository;
 
+    @Autowired
+    private TicketSettingRepository ticketSettingRepository;
+
 
     //
     // STIRI
@@ -313,5 +316,19 @@ public class AdminController {
     public ResponseEntity<?> deleteStaff(@PathVariable Long id) {
         staffRepository.deleteById(id);
         return ResponseEntity.ok(Map.of("message", "Membru staff șters!"));
+    }
+
+    // BILETE
+
+    @PostMapping("/tickets")
+    public ResponseEntity<?> updateTickets(
+            @RequestParam("visible") boolean visible,
+            @RequestParam("linkUrl") String linkUrl) {
+        // Căutăm setarea curentă sau creăm una nouă dacă e prima dată
+        TicketSetting setting = ticketSettingRepository.findById(1L).orElse(new TicketSetting());
+        setting.setId(1L);
+        setting.setVisible(visible);
+        setting.setLinkUrl(linkUrl);
+        return ResponseEntity.ok(ticketSettingRepository.save(setting));
     }
 }

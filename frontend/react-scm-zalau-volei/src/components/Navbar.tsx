@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logoscm from "../Images/scmzalaulogopng.png";
 // @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import API_URL from "../config";
+
 export const Navbar = () => {
+  const [ticketData, setTicketData] = useState({ visible: false, linkUrl: "" });
+
+  useEffect(() => {
+    fetch(`${API_URL}/api/home/tickets`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data) setTicketData(data);
+      })
+      .catch((err) => console.error("Error fetching ticket settings:", err));
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
       <div className="container">
@@ -67,13 +80,18 @@ export const Navbar = () => {
                 CONTACT
               </NavLink>
             </li>
-            {/* 
-            <li className="nav-item ms-lg-2">
-              <a className="btn btn-custom btn-sm" href="#">
-                Intră în cont
-              </a>
-            </li>
-            */}
+            {ticketData.visible && ticketData.linkUrl && (
+              <li className="nav-item ms-lg-3 mt-3 mt-lg-0">
+                <a
+                  href={ticketData.linkUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-warning fw-bold px-4 rounded-pill shadow-sm text-dark d-flex align-items-center gap-2"
+                >
+                  <span>🎟️</span> BILETE
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
