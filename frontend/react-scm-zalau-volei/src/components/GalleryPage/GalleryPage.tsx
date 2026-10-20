@@ -15,18 +15,25 @@ export const GalleryPage = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/api/home/highlights`)
-      .then((res) => res.json())
+      .then((res) => (res.ok ? res.json() : []))
       .then((data) => {
-        const allMedia = [...data];
+        if (Array.isArray(data)) {
+          const allMedia = [...data];
 
-        for (let i = allMedia.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [allMedia[i], allMedia[j]] = [allMedia[j], allMedia[i]];
+          for (let i = allMedia.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [allMedia[i], allMedia[j]] = [allMedia[j], allMedia[i]];
+          }
+
+          setItems(allMedia);
+        } else {
+          setItems([]);
         }
-
-        setItems(allMedia);
       })
-      .catch((err) => console.error("Error fetching gallery:", err));
+      .catch((err) => {
+        console.error("Error fetching gallery:", err);
+        setItems([]);
+      });
   }, []);
 
 

@@ -14,9 +14,12 @@ export const Results = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/api/home/results`)
-      .then((res) => res.json())
-      .then((data) => setResults(data))
-      .catch((err) => console.error("Error fetching results:", err));
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => Array.isArray(data) ? setResults(data) : setResults([]))
+      .catch((err) => {
+        console.error("Error fetching results:", err);
+        setResults([]);
+      });
   }, []);
 
   return (

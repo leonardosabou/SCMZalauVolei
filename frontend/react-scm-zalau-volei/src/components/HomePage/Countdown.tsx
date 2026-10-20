@@ -17,14 +17,17 @@ export const Countdown = () => {
   const [match, setMatch] = useState<MatchGame | null>(null);
   const [timeLeft, setTimeLeft] = useState<string>("Se încarcă...");
 
-  useEffect(() => {
+useEffect(() => {
     fetch(`${API_URL}/api/home/next-match`)
       .then((res) => {
-        if (res.status === 204) return null;
+        if (!res.ok || res.status === 204) return null;
         return res.json();
       })
-      .then((data) => setMatch(data))
-      .catch((err) => console.error("Error fetching match:", err));
+      .then((data) => setMatch(data || null))
+      .catch((err) => {
+        console.error("Error fetching match:", err);
+        setMatch(null);
+      });
   }, []);
 
   useEffect(() => {

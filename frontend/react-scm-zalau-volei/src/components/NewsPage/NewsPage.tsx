@@ -16,9 +16,12 @@ export const NewsPage = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/api/home/news`)
-      .then((res) => res.json())
-      .then((data) => setNewsList(data))
-      .catch((err) => console.error("Error fetching news:", err));
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => Array.isArray(data) ? setNewsList(data) : setNewsList([]))
+      .catch((err) => {
+        console.error("Error fetching news:", err);
+        setNewsList([]);
+      });
   }, []);
 
   const formatDate = (dateString: string) => {

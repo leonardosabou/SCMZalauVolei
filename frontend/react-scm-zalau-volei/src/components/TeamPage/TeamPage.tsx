@@ -49,14 +49,20 @@ export const TeamPage = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/api/home/team/players`)
-      .then((res) => res.json())
-      .then((data) => setPlayers(data))
-      .catch((err) => console.error("Error fetching players:", err));
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => Array.isArray(data) ? setPlayers(data) : setPlayers([]))
+      .catch((err) => {
+        console.error("Error fetching players:", err);
+        setPlayers([]);
+      });
 
     fetch(`${API_URL}/api/home/team/staff`)
-      .then((res) => res.json())
-      .then((data) => setStaff(data))
-      .catch((err) => console.error("Error fetching staff:", err));
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => Array.isArray(data) ? setStaff(data) : setStaff([]))
+      .catch((err) => {
+        console.error("Error fetching staff:", err);
+        setStaff([]);
+      });
   }, []);
 
   return (

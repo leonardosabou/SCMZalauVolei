@@ -31,9 +31,12 @@ export const ProgramPage = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/api/home/program`)
-      .then((res) => res.json())
-      .then((data) => setMatches(data))
-      .catch((err) => console.error("Error fetching program:", err));
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => Array.isArray(data) ? setMatches(data) : setMatches([]))
+      .catch((err) => {
+        console.error("Error fetching program:", err);
+        setMatches([]);
+      });
   }, []);
 
   return (

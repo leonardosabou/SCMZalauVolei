@@ -17,9 +17,12 @@ export const Sponsors = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/api/home/sponsors`)
-      .then((res) => res.json())
-      .then((data) => setSponsors(data))
-      .catch((err) => console.error("Error fetching sponsors:", err));
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => Array.isArray(data) ? setSponsors(data) : setSponsors([]))
+      .catch((err) => {
+        console.error("Error fetching sponsors:", err);
+        setSponsors([]);
+      });
   }, []);
 
   const updateSlides = () => {

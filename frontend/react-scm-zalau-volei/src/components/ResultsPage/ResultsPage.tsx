@@ -22,14 +22,20 @@ export const ResultsPage = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/api/home/standings`)
-      .then((res) => res.json())
-      .then((data) => setStandings(data))
-      .catch((err) => console.error("Error fetching standings:", err));
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => Array.isArray(data) ? setStandings(data) : setStandings([]))
+      .catch((err) => {
+        console.error("Error fetching standings:", err);
+        setStandings([]);
+      });
 
     fetch(`${API_URL}/api/home/results`)
-      .then((res) => res.json())
-      .then((data) => setResults(data))
-      .catch((err) => console.error("Error fetching results:", err));
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => Array.isArray(data) ? setResults(data) : setResults([]))
+      .catch((err) => {
+        console.error("Error fetching results:", err);
+        setResults([]);
+      });
   }, []);
 
   return (

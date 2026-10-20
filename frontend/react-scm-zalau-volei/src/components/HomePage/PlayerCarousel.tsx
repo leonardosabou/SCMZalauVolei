@@ -13,15 +13,22 @@ export const PlayerCarousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [highlights, setHighlights] = useState<GameHighlight[]>([]);
 
-  useEffect(() => {
+ useEffect(() => {
     fetch(`${API_URL}/api/home/highlights`)
       .then((res) => res.json())
       .then((data) => {
-        const latestHighlights = [...data].reverse().slice(0, 8);
-        
-        setHighlights(latestHighlights);
+        // PLASA DE SIGURANȚĂ: verificăm dacă sunt listă
+        if (Array.isArray(data)) {
+          const latestHighlights = [...data].reverse().slice(0, 8);
+          setHighlights(latestHighlights);
+        } else {
+          setHighlights([]); // Dacă e eroare, setăm o listă goală
+        }
       })
-      .catch((err) => console.error("Error fetching highlights:", err));
+      .catch((err) => {
+        console.error("Error fetching highlights:", err);
+        setHighlights([]);
+      });
   }, []);
 
   useEffect(() => {

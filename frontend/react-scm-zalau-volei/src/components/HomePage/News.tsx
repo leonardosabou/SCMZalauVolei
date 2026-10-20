@@ -13,11 +13,17 @@ interface NewsItem {
 export const News = () => {
   const [newsList, setNewsList] = useState<NewsItem[]>([]);
 
-  useEffect(() => {
+useEffect(() => {
     fetch(`${API_URL}/api/home/news`)
       .then((res) => res.json())
-      .then((data) => setNewsList(data))
-      .catch((err) => console.error("Error fetching news:", err));
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setNewsList(data); 
+        } else {
+          setNewsList([]);
+        }
+      })
+      .catch((err) => setNewsList([]));
   }, []);
 
   return (
