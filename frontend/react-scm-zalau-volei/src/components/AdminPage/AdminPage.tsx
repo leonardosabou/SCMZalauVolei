@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./AdminPage.css"; 
 import API_URL from "../../config";
 import { ManageNews } from "./ManageNews";
@@ -13,10 +12,8 @@ import { ManageTickets } from "./ManageTickets";
 export const AdminPage = () => {
   const [activeTab, setActiveTab] = useState("news");
   
-  // Verificăm dacă avem deja token-ul salvat în browser
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("adminToken"));
   
-  // State-uri pentru Login
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
@@ -32,7 +29,6 @@ export const AdminPage = () => {
 
       if (response.ok) {
         const data = await response.json();
-        // Salvăm tokenul în browser (Local Storage)
         localStorage.setItem("adminToken", data.token);
         setIsLoggedIn(true);
       } else {
@@ -70,12 +66,10 @@ export const AdminPage = () => {
     );
   }
 
-  // Dacă e logat, arătăm Dashboard-ul
   return (
     <div className="container-fluid py-5" style={{ marginTop: "80px" }}>
       <div className="row">
         
-        {/* MENIUL LATERAL */}
         <div className="col-md-3 col-lg-2 mb-4">
           <div className="list-group shadow-sm mb-3">
             <button className="list-group-item list-group-item-dark fw-bold text-center" disabled>
@@ -108,8 +102,6 @@ export const AdminPage = () => {
             🚪 Deconectare
           </button>
         </div>
-
-        {/* ZONA DE CONȚINUT */}
         <div className="col-md-9 col-lg-10">
           <div className="card shadow-sm p-4 min-vh-100 border-0">
             {activeTab === 'news' && <ManageNews />}

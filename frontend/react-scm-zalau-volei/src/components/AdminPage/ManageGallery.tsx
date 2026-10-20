@@ -12,7 +12,6 @@ export const ManageGallery = () => {
   const [status, setStatus] = useState("");
   const [galleryList, setGalleryList] = useState<GameHighlight[]>([]);
 
-  // Preia pozele curente de pe server
   const fetchGallery = () => {
     fetch(`${API_URL}/api/home/highlights`)
       .then((res) => res.json())
@@ -28,7 +27,6 @@ export const ManageGallery = () => {
 
     setStatus("⏳ Se încarcă imaginea pe server...");
     const formData = new FormData();
-    // Trimitem automat tipul "image" ca să nu stricăm backend-ul
     formData.append("type", "image");
     formData.append("image", image);
 
@@ -43,7 +41,6 @@ export const ManageGallery = () => {
       if (response.ok) {
         setStatus("✅ Imagine adăugată cu succes în galerie!");
         setImage(null);
-        // Resetăm input-ul de file
         const fileInput = document.getElementById('galleryImageInput') as HTMLInputElement;
         if (fileInput) fileInput.value = "";
         
@@ -74,14 +71,12 @@ export const ManageGallery = () => {
     <div>
       <h3 className="mb-4">Gestionare Galerie Foto & Highlights</h3>
       
-      {/* FORMULAR DE ADĂUGARE */}
       <div className="card shadow-sm p-4 mb-5 border-0 bg-light">
         <h5 className="mb-3">Adaugă O Fotografie Nouă</h5>
         {status && <div className="alert alert-info fw-bold">{status}</div>}
         <form onSubmit={handleSubmit} className="row g-3 align-items-end">
           <div className="col-md-9">
             <label className="form-label fw-bold">Selectează Fotografia</label>
-            {/* Acceptăm strict doar imagini */}
             <input 
               id="galleryImageInput"
               type="file" 
@@ -97,7 +92,6 @@ export const ManageGallery = () => {
         </form>
       </div>
 
-      {/* AFIȘAREA GALERIEI (GRID CU POZE) */}
       <h5 className="mb-3">Fotografii publicate pe site ({galleryList.length})</h5>
       <div className="row g-3">
         {galleryList.map(g => (

@@ -1,18 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// @ts-ignore CSS files are handled by the bundler and have no TypeScript declarations.
 import "./App.css";
-// @ts-ignore CSS files are handled by the bundler and have no TypeScript declarations.
 import "../src/components/Navbar.css";
-// @ts-ignore CSS files are handled by the bundler and have no TypeScript declarations.
 import "../src/components/HomePage/Countdown.css";
-// @ts-ignore CSS files are handled by the bundler and have no TypeScript declarations.
 import "../src/components/HomePage/News.css";
-// @ts-ignore CSS files are handled by the bundler and have no TypeScript declarations.
 import "../src/components/HomePage/PlayerCarousel.css";
-// @ts-ignore CSS files are handled by the bundler and have no TypeScript declarations.
 import "../src/components/HomePage/Results.css";
-// @ts-ignore CSS files are handled by the bundler and have no TypeScript declarations.
 import "../src/components/HomePage/Sponsors.css";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";

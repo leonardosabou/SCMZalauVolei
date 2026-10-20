@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
 import API_URL from "../../config";
-// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./GalleryPage.css";
 
 interface GameHighlight {

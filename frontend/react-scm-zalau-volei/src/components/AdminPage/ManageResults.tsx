@@ -14,13 +14,11 @@ interface Standing {
 }
 
 export const ManageResults = () => {
-  // State pentru Rezultate
   const [results, setResults] = useState<MatchResult[]>([]);
   const [stage, setStage] = useState("");
   const [resultImage, setResultImage] = useState<File | null>(null);
   const [resultStatus, setResultStatus] = useState("");
 
-  // State pentru Clasamente
   const [standings, setStandings] = useState<Standing[]>([]);
   const [description, setDescription] = useState("");
   const [standingImage, setStandingImage] = useState<File | null>(null);
@@ -38,7 +36,6 @@ export const ManageResults = () => {
 
   useEffect(() => fetchData(), []);
 
-  // Handler Rezultate
   const handleAddResult = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!resultImage) return setResultStatus("⚠️ Selectează o imagine!");
@@ -76,7 +73,6 @@ export const ManageResults = () => {
     fetchData();
   };
 
-  // Handler Clasamente
   const handleAddStanding = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!standingImage) return setStandingStatus("⚠️ Selectează o imagine!");

@@ -15,14 +15,12 @@ export const ManageMatches = () => {
   const [matches, setMatches] = useState<MatchGame[]>([]);
   const [status, setStatus] = useState("");
 
-  // Form states pt adaugare
   const [opponent, setOpponent] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("Acasa");
   const [competition, setCompetition] = useState("Divizia A1");
   const [image, setImage] = useState<File | null>(null);
 
-  // States pt editare inline
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editDate, setEditDate] = useState("");
   const [editFinished, setEditFinished] = useState(false);
@@ -43,7 +41,7 @@ export const ManageMatches = () => {
     setStatus("⏳ Se adaugă meciul...");
     const formData = new FormData();
     formData.append("opponent", opponent);
-    formData.append("date", date); // Format nativ YYYY-MM-DDTHH:mm
+    formData.append("date", date);
     formData.append("location", location);
     formData.append("competition", competition);
     formData.append("image", image);
@@ -105,7 +103,6 @@ export const ManageMatches = () => {
 
   const startEditing = (m: MatchGame) => {
     setEditingId(m.id);
-    // Tăiem secundele (dacă există) pentru ca input-ul datetime-local să funcționeze corect
     setEditDate(m.date.substring(0, 16)); 
     setEditFinished(m.finished);
   };
@@ -114,7 +111,6 @@ export const ManageMatches = () => {
     <div>
       <h3 className="mb-4">Program Meciuri</h3>
       
-      {/* FORMULAR ADĂUGARE */}
       <div className="card shadow-sm p-4 mb-5 border-0 bg-light">
         <h5 className="mb-3">Adaugă Meci Nou</h5>
         {status && <div className="alert alert-info fw-bold">{status}</div>}
@@ -152,7 +148,6 @@ export const ManageMatches = () => {
         </form>
       </div>
 
-      {/* LISTA MECIURI */}
       <h5 className="mb-3">Meciuri Programate</h5>
       <table className="table table-bordered align-middle">
         <thead className="table-dark">
@@ -168,7 +163,6 @@ export const ManageMatches = () => {
               <td>{m.competition}</td>
               <td>{m.location}</td>
               
-              {/* EDIT MODE: DATA */}
               <td>
                 {editingId === m.id ? (
                   <input type="datetime-local" className="form-control form-control-sm" value={editDate} onChange={(e) => setEditDate(e.target.value)} />
@@ -177,7 +171,6 @@ export const ManageMatches = () => {
                 )}
               </td>
 
-              {/* EDIT MODE: STATUS JUCAT */}
               <td>
                 {editingId === m.id ? (
                   <div className="form-check form-switch">
@@ -189,7 +182,6 @@ export const ManageMatches = () => {
                 )}
               </td>
 
-              {/* BUTOANE ACȚIUNE */}
               <td>
                 {editingId === m.id ? (
                   <>

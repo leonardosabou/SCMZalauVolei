@@ -26,7 +26,6 @@ export const ManageTeam = () => {
   const [players, setPlayers] = useState<Player[]>([]);
   const [staffList, setStaffList] = useState<Staff[]>([]);
 
-  // States pt Jucător
   const [editPlayerId, setEditPlayerId] = useState<number | null>(null);
   const [pName, setPName] = useState("");
   const [pNumber, setPNumber] = useState("");
@@ -38,7 +37,6 @@ export const ManageTeam = () => {
   const [pImage, setPImage] = useState<File | null>(null);
   const [pStatus, setPStatus] = useState("");
 
-  // States pt Staff
   const [editStaffId, setEditStaffId] = useState<number | null>(null);
   const [sName, setSName] = useState("");
   const [sRole, setSRole] = useState("");
@@ -46,7 +44,6 @@ export const ManageTeam = () => {
   const [sStatus, setSStatus] = useState("");
 
   const fetchTeam = () => {
-    // Am corectat URL-urile de fetch pentru a corespunde cu pagina ta
     fetch(`${API_URL}/api/home/team/players`)
       .then(res => res.ok ? res.json() : [])
       .then(data => Array.isArray(data) ? setPlayers(data) : setPlayers([]))
@@ -75,7 +72,7 @@ export const ManageTeam = () => {
     setPHeight(p.height);
     setPDob(p.dateOfBirth);
     setPVolleybox(p.volleyboxUrl || "");
-    setPImage(null); // Imaginea este opțională la editare
+    setPImage(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -120,7 +117,6 @@ export const ManageTeam = () => {
     fetchTeam();
   };
 
-  // Staff Handlers
   const resetStaffForm = () => {
     setEditStaffId(null);
     setSName(""); setSRole(""); setSImage(null);

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import API_URL from "../../config";
-// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./PlayerCarousel.css";
 
 interface GameHighlight {
@@ -17,12 +16,11 @@ export const PlayerCarousel = () => {
     fetch(`${API_URL}/api/home/highlights`)
       .then((res) => res.json())
       .then((data) => {
-        // PLASA DE SIGURANȚĂ: verificăm dacă sunt listă
         if (Array.isArray(data)) {
           const latestHighlights = [...data].reverse().slice(0, 8);
           setHighlights(latestHighlights);
         } else {
-          setHighlights([]); // Dacă e eroare, setăm o listă goală
+          setHighlights([]);
         }
       })
       .catch((err) => {
