@@ -20,7 +20,9 @@ public class WebConfig {
                                 "https://www.scmzalau-volei.ro",
                                 "https://scm-zalau-volei-d7w6.vercel.app"
                         )
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
