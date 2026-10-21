@@ -6,6 +6,10 @@ import API_URL from "../config";
 
 export const Navbar = () => {
   const [ticketData, setTicketData] = useState({ visible: false, linkUrl: "" });
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+  const closeNav = () => setIsNavCollapsed(true);
 
   useEffect(() => {
     fetch(`${API_URL}/api/home/tickets`)
@@ -30,57 +34,70 @@ export const Navbar = () => {
           <span className="d-none d-sm-block fw-bold">SCM ZALĂU</span>
         </span>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle Navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <div className="d-flex align-items-center gap-3">
+          {ticketData.visible && ticketData.linkUrl && (
+            <a
+              href={ticketData.linkUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-warning fw-bold px-3 py-1 rounded-pill shadow-sm text-dark d-flex align-items-center gap-1 d-lg-none"
+              style={{ fontSize: "14px" }}
+            >
+              <span>🎟️</span> BILETE
+            </a>
+          )}
 
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={handleNavCollapse}
+            aria-expanded={!isNavCollapsed}
+            aria-label="Toggle Navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div className={`collapse navbar-collapse ${!isNavCollapsed ? "show" : ""}`} id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
-              <NavLink className="nav-link px-3" to="/" end>
+              <NavLink className="nav-link px-3" to="/" end onClick={closeNav}>
                 ACASĂ
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link px-3" to="/echipa">
+              <NavLink className="nav-link px-3" to="/echipa" onClick={closeNav}>
                 ECHIPA
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link px-3" to="/program">
+              <NavLink className="nav-link px-3" to="/program" onClick={closeNav}>
                 PROGRAM
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link px-3" to="/rezultate">
+              <NavLink className="nav-link px-3" to="/rezultate" onClick={closeNav}>
                 REZULTATE
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link px-3" to="/stiri">
+              <NavLink className="nav-link px-3" to="/stiri" onClick={closeNav}>
                 ȘTIRI
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link px-3" to="/galerie">
+              <NavLink className="nav-link px-3" to="/galerie" onClick={closeNav}>
                 GALERIE FOTO
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link px-3" to="/contact">
+              <NavLink className="nav-link px-3" to="/contact" onClick={closeNav}>
                 CONTACT
               </NavLink>
             </li>
+            
             {ticketData.visible && ticketData.linkUrl && (
-              <li className="nav-item ms-lg-3 mt-3 mt-lg-0">
+              <li className="nav-item ms-lg-3 mt-3 mt-lg-0 d-none d-lg-block">
                 <a
                   href={ticketData.linkUrl}
                   target="_blank"
