@@ -264,7 +264,8 @@ public class AdminController {
             @RequestParam("nationality") String nationality,
             @RequestParam("position") String position,
             @RequestParam("height") String height,
-            @RequestParam("dateOfBirth") String dateOfBirth, // Așteaptă YYYY-MM-DD
+            @RequestParam("dateOfBirth") String dateOfBirth,
+            @RequestParam(value = "displayOrder", defaultValue = "0") Integer displayOrder, // NOU
             @RequestParam(value = "volleyboxUrl", required = false) String volleyboxUrl,
             @RequestParam("image") MultipartFile image) {
         try {
@@ -277,6 +278,7 @@ public class AdminController {
             player.setPosition(position);
             player.setHeight(height);
             player.setDateOfBirth(LocalDate.parse(dateOfBirth));
+            player.setDisplayOrder(displayOrder); // NOU
             player.setVolleyboxUrl(volleyboxUrl);
             player.setImageUrl(imageUrl);
 
@@ -295,6 +297,7 @@ public class AdminController {
             @RequestParam("position") String position,
             @RequestParam("height") String height,
             @RequestParam("dateOfBirth") String dateOfBirth,
+            @RequestParam(value = "displayOrder", defaultValue = "0") Integer displayOrder, // NOU
             @RequestParam(value = "volleyboxUrl", required = false) String volleyboxUrl,
             @RequestParam(value = "image", required = false) MultipartFile image) {
         try {
@@ -305,6 +308,7 @@ public class AdminController {
             player.setPosition(position);
             player.setHeight(height);
             player.setDateOfBirth(LocalDate.parse(dateOfBirth));
+            player.setDisplayOrder(displayOrder); // NOU
             player.setVolleyboxUrl(volleyboxUrl);
 
             if (image != null && !image.isEmpty()) {
@@ -317,7 +321,6 @@ public class AdminController {
             return ResponseEntity.internalServerError().body(Map.of("error", e.getMessage()));
         }
     }
-
     @DeleteMapping("/players/{id}")
     public ResponseEntity<?> deletePlayer(@PathVariable Long id) {
         playerRepository.deleteById(id);

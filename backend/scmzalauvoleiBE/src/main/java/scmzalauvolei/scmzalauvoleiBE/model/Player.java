@@ -22,6 +22,8 @@ public class Player {
     private String imageUrl;
     private String volleyboxUrl;
 
+    private Integer displayOrder;
+
     public Long getId() {
         return id;
     }
@@ -93,4 +95,8 @@ public class Player {
     public void setVolleyboxUrl(String volleyboxUrl) {
         this.volleyboxUrl = volleyboxUrl;
     }
+
+    public Integer getDisplayOrder(){ return displayOrder; }
+
+    public void setDisplayOrder(Integer displayOrder) { this.displayOrder = displayOrder; }
 }

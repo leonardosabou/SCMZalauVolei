@@ -30,7 +30,7 @@ export const ManageTeam = () => {
   const [pName, setPName] = useState("");
   const [pNumber, setPNumber] = useState("");
   const [pNationality, setPNationality] = useState("");
-  const [pPosition, setPPosition] = useState("Secund");
+  const [pPosition, setPPosition] = useState("Coordonator");
   const [pHeight, setPHeight] = useState("");
   const [pDob, setPDob] = useState("");
   const [pVolleybox, setPVolleybox] = useState("");
@@ -61,6 +61,7 @@ export const ManageTeam = () => {
     setEditPlayerId(null);
     setPName(""); setPNumber(""); setPNationality(""); setPHeight(""); 
     setPDob(""); setPVolleybox(""); setPImage(null);
+    setPPosition("Coordonator");
   };
 
   const startEditPlayer = (p: Player) => {
