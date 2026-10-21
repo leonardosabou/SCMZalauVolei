@@ -46,7 +46,7 @@ export const Navbar = () => {
               <span>🎟️</span> BILETE
             </a>
           )}
-
+          {/* changing how the navbar open/close works on mobile */}
           <button
             className="navbar-toggler"
             type="button"
