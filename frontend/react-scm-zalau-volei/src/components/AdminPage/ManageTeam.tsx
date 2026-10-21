@@ -11,6 +11,7 @@ interface Player {
   dateOfBirth: string;
   imageUrl: string;
   volleyboxUrl: string;
+  displayOrder: number; // NOU
 }
 
 interface Staff {
@@ -26,6 +27,7 @@ export const ManageTeam = () => {
   const [players, setPlayers] = useState<Player[]>([]);
   const [staffList, setStaffList] = useState<Staff[]>([]);
 
+  // States pt Jucător
   const [editPlayerId, setEditPlayerId] = useState<number | null>(null);
   const [pName, setPName] = useState("");
   const [pNumber, setPNumber] = useState("");
@@ -33,10 +35,12 @@ export const ManageTeam = () => {
   const [pPosition, setPPosition] = useState("Coordonator");
   const [pHeight, setPHeight] = useState("");
   const [pDob, setPDob] = useState("");
+  const [pDisplayOrder, setPDisplayOrder] = useState("0"); // NOU
   const [pVolleybox, setPVolleybox] = useState("");
   const [pImage, setPImage] = useState<File | null>(null);
   const [pStatus, setPStatus] = useState("");
 
+  // States pt Staff
   const [editStaffId, setEditStaffId] = useState<number | null>(null);
   const [sName, setSName] = useState("");
   const [sRole, setSRole] = useState("");
@@ -46,7 +50,13 @@ export const ManageTeam = () => {
   const fetchTeam = () => {
     fetch(`${API_URL}/api/home/team/players`)
       .then(res => res.ok ? res.json() : [])
-      .then(data => Array.isArray(data) ? setPlayers(data) : setPlayers([]))
+      .then(data => {
+        if (Array.isArray(data)) {
+          // Sortăm crescător după ordinea setată de tine
+          const sorted = data.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+          setPlayers(sorted);
+        } else setPlayers([]);
+      })
       .catch(() => setPlayers([]));
 
     fetch(`${API_URL}/api/home/team/staff`)
@@ -62,6 +72,7 @@ export const ManageTeam = () => {
     setPName(""); setPNumber(""); setPNationality(""); setPHeight(""); 
     setPDob(""); setPVolleybox(""); setPImage(null);
     setPPosition("Coordonator");
+    setPDisplayOrder("0"); // NOU
   };
 
   const startEditPlayer = (p: Player) => {
@@ -72,8 +83,9 @@ export const ManageTeam = () => {
     setPPosition(p.position);
     setPHeight(p.height);
     setPDob(p.dateOfBirth);
+    setPDisplayOrder(p.displayOrder ? p.displayOrder.toString() : "0"); // NOU
     setPVolleybox(p.volleyboxUrl || "");
-    setPImage(null);
+    setPImage(null); 
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -89,6 +101,7 @@ export const ManageTeam = () => {
     formData.append("position", pPosition);
     formData.append("height", pHeight);
     formData.append("dateOfBirth", pDob);
+    formData.append("displayOrder", pDisplayOrder || "0"); // NOU
     formData.append("volleyboxUrl", pVolleybox);
     if (pImage) formData.append("image", pImage);
 
@@ -200,9 +213,10 @@ export const ManageTeam = () => {
                   </select>
                 </div>
                 <div className="col-6"><input type="text" className="form-control" placeholder="Naționalitate" value={pNationality} onChange={e => setPNationality(e.target.value)} required /></div>
-                <div className="col-12"><label className="small text-muted mb-1">Data Nașterii</label><input type="date" className="form-control" value={pDob} onChange={e => setPDob(e.target.value)} required /></div>
+                <div className="col-6"><label className="small text-muted mb-1">Data Nașterii</label><input type="date" className="form-control" value={pDob} onChange={e => setPDob(e.target.value)} required /></div>
+                <div className="col-6"><label className="small text-muted mb-1">Ordinea pe site (1, 2, 3)</label><input type="number" className="form-control" value={pDisplayOrder} onChange={e => setPDisplayOrder(e.target.value)} required /></div>
                 <div className="col-12"><input type="url" className="form-control" placeholder="Link Volleybox (Opțional)" value={pVolleybox} onChange={e => setPVolleybox(e.target.value)} /></div>
-                <div className="col-12"><label className="small text-muted mb-1">{editPlayerId ? "Încarcă poză nouă (lasă gol pt a o păstra pe cea veche)" : "Poza (fără fundal / PNG)"}</label><input type="file" className="form-control" accept="image/*" onChange={e => setPImage(e.target.files?.[0] || null)} /></div>
+                <div className="col-12"><label className="small text-muted mb-1">{editPlayerId ? "Încarcă poză nouă (lasă gol pt a o păstra)" : "Poza (fără fundal / PNG)"}</label><input type="file" className="form-control" accept="image/*" onChange={e => setPImage(e.target.files?.[0] || null)} /></div>
                 
                 <button type="submit" className="btn btn-primary mt-3 w-100 fw-bold">{editPlayerId ? "Salvează Modificările" : "+ Adaugă Jucător"}</button>
                 {editPlayerId && <button type="button" className="btn btn-secondary mt-2 w-100 fw-bold" onClick={resetPlayerForm}>Anulează Editarea</button>}
@@ -213,7 +227,8 @@ export const ManageTeam = () => {
             <div className="row g-3">
               {players.map(p => (
                 <div key={p.id} className="col-sm-6 col-lg-4">
-                  <div className="card text-center shadow-sm border-0 h-100">
+                  <div className="card text-center shadow-sm border-0 h-100 position-relative">
+                    <span className="badge bg-secondary position-absolute top-0 start-0 m-2">Ord: {p.displayOrder || 0}</span>
                     <img src={p.imageUrl} alt={p.name} className="card-img-top mx-auto mt-2" style={{ width: "80px", height: "80px", objectFit: "cover", borderRadius: "50%" }} />
                     <div className="card-body p-2 d-flex flex-column">
                       <h6 className="mb-0 fw-bold">{p.name} (#{p.shirtNumber})</h6>
@@ -231,6 +246,7 @@ export const ManageTeam = () => {
         </div>
       )}
 
+      {/* Staff View a ramas neschimbat aici */}
       {view === "staff" && (
         <div className="row">
           <div className="col-md-5">
