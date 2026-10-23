@@ -27,7 +27,7 @@ export const Footer = () => {
               </li>
               <li className="mb-3">
                 <i className="bi bi-telephone-fill me-2 text-danger"></i>
-                0745 637 050
+                (+40) 0745 637 050
               </li>
             </ul>
           </div>

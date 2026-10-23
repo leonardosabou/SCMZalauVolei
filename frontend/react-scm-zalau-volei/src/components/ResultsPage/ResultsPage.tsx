@@ -42,7 +42,7 @@ export const ResultsPage = () => {
       <div className="results-hero">
         <div className="container">
           <h1 className="display-4 fw-bold">REZULTATE & CLASAMENTE</h1>
-          <p className="lead opacity-75">Sezonul 2025-2026</p>
+          <p className="lead opacity-75">Sezonul 2026-2027</p>
         </div>
       </div>
 

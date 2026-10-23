@@ -71,7 +71,7 @@ export const TeamPage = () => {
     <div className="team-page-wrapper">
       
       <div className="team-header">
-        <h1 className="section-title">LOTUL ECHIPEI 2025-2026</h1>
+        <h1 className="section-title">LOTUL ECHIPEI PENTRU SEZONUL 2026-2027</h1>
       </div>
 
       <div className="container py-5">

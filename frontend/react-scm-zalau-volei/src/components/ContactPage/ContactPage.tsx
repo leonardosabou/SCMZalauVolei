@@ -24,7 +24,7 @@ export const ContactPage = () => {
               <p className="contact-text mb-2">
               </p>
               <p className="contact-text fw-bold fs-5">
-                <a href="tel:0745637050">0745 637 050</a>
+                <a href="tel:0745637050">(+40) 0745 637 050</a>
               </p>
             </div>
           </div>

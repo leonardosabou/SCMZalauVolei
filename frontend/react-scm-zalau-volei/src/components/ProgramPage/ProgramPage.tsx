@@ -43,7 +43,7 @@ export const ProgramPage = () => {
       <div className="program-hero">
         <div className="container">
           <h1 className="display-4 fw-bold">PROGRAM COMPETIȚIONAL</h1>
-          <p className="lead opacity-75">Sezonul 2025-2026</p>
+          <p className="lead opacity-75">Sezonul 2026-2027</p>
         </div>
       </div>
 
